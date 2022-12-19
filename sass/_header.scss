@@ -1,0 +1,53 @@
+@import "_variables";
+
+.header {
+  font-size: 2rem;
+
+  nav {
+    position: relative;
+    padding: 2px;
+    border-bottom-style: solid;
+    border-color: black;
+
+    div {
+      > a {
+        font-family: "Gentium Basic", sans-serif;
+        font-size: 1.08rem;
+        color: black;
+        transition: color 150ms ease-in-out;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+
+        &:not(:last-child) {
+          margin-right: 50px;
+        }
+
+        &:hover {
+          color: $softOrange;
+        }
+
+        &:hover + div {
+          visibility: visible;
+        }
+      }
+
+      > div {
+        position: absolute;
+        visibility: hidden;
+        right: 10rem;
+        width: 15rem;
+        background-color: rgb(241, 240, 239);
+        color: black;
+
+        a {
+          color: teal;
+          display: block;
+        }
+
+        &:hover {
+          visibility: visible;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,62 @@
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/* latin-ext */
+@font-face {
+  font-family: "Gentium Basic";
+  font-style: normal;
+  font-weight: 400;
+  color: aliceblue;
+  font-display: fallback;
+  src: url(https://fonts.gstatic.com/s/gentiumbasic/v18/Wnz9HAw9aB_JD2VGQVR80We3LAOJiAI_.woff2)
+    format("woff2");
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB,
+    U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+.body {
+  display: grid;
+  // grid-template-columns: fr;
+  grid-template-rows: auto auto auto auto;
+  font-family: "Gentium Basic";
+  margin: 0;
+
+  h1 {
+    color: green;
+    font-size: 4.8rem;
+    font-weight: 500;
+    text-align: center;
+    padding: 2px;
+  }
+}
+
+a,
+a:visited,
+a:hover {
+  text-decoration: none;
+}
+
+// flexbox
+.flex {
+  display: flex;
+
+  &-jc-sb {
+    justify-content: space-between;
+  }
+
+  &-jc-c {
+    justify-content: center;
+  }
+
+  &-ai-c {
+    align-items: center;
+  }
+}
