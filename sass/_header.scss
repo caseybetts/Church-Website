@@ -1,6 +1,7 @@
 @import "_variables";
 
 .header {
+  grid-row: 1/2;
   font-size: 2rem;
 
   nav {
@@ -13,7 +14,7 @@
       > a {
         font-family: "Gentium Basic", sans-serif;
         font-size: 1.08rem;
-        color: black;
+        color: green;
         transition: color 150ms ease-in-out;
         padding-top: 1rem;
         padding-bottom: 1rem;
