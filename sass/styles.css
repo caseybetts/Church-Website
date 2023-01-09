@@ -162,7 +162,6 @@ CSS Grid layout for modern browsers:
 .header {
   grid-row: 1/2;
   font-size: 2rem;
-  flex-direction: column;
 }
 .header nav {
   position: relative;
