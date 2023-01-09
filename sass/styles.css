@@ -19,18 +19,46 @@ html {
   src: url(https://fonts.gstatic.com/s/gentiumbasic/v18/Wnz9HAw9aB_JD2VGQVR80We3LAOJiAI_.woff2) format("woff2");
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
+/*--------------------------------------------------------------
+Accessibility
+--------------------------------------------------------------*/
+/* Text meant only for screen readers */
+.screen-reader-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+
+.screen-reader-text:hover,
+.screen-reader-text:active,
+.screen-reader-text:focus {
+  background-color: #f1f1f1;
+  border-radius: 3px;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  clip: auto !important;
+  color: #21759b;
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  height: auto;
+  left: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000; /* Above WP toolbar */
+}
+
+/*--------------------------------------------------------------
+Typography
+--------------------------------------------------------------*/
 .body {
-  display: grid;
-  grid-template-rows: auto auto auto auto;
   font-family: "Gentium Basic";
   margin: 0;
-}
-.body h1 {
-  color: green;
-  font-size: 4.8rem;
-  font-weight: 500;
   text-align: center;
-  padding: 2px;
 }
 
 a,
@@ -41,6 +69,8 @@ a:hover {
 
 .flex {
   display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
 }
 .flex-jc-sb {
   justify-content: space-between;
@@ -52,19 +82,103 @@ a:hover {
   align-items: center;
 }
 
+blockquote {
+  font-size: 1rem;
+  color: black;
+  text-align: center;
+}
+
+cite {
+  color: blue;
+  text-align: center;
+}
+
+h2 {
+  color: blue;
+  text-align: center;
+}
+
+li {
+  list-style-type: none;
+}
+
+footer nav {
+  color: blue;
+  max-width: 20rem;
+  line-height: 1.3px;
+}
+footer nav ul {
+  width: 100%;
+  flex-direction: column;
+}
+footer nav li {
+  padding: 1rem;
+}
+footer section {
+  padding: 1rem;
+}
+
+/* ------------------------------------------------
+Basic responsive layout for all browsers:
+--------------------------------------------------*/
+.site {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.main-areas {
+  background-color: red;
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.footer img {
+  padding: 1rem;
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  color: blue;
+  padding: 0;
+}
+ul p {
+  text-align: center;
+}
+ul img {
+  padding: 1rem;
+}
+
+/*------------------------------------------------
+CSS Grid layout for modern browsers:
+-------------------------------------------------*/
 .header {
+  grid-row: 1/2;
   font-size: 2rem;
+  flex-direction: column;
 }
 .header nav {
   position: relative;
   padding: 2px;
   border-bottom-style: solid;
   border-color: black;
+  flex-wrap: nowrap;
+}
+.header nav div {
+  display: flex;
+  align-items: flex-end;
 }
 .header nav div > a {
+  color: black;
   font-family: "Gentium Basic", sans-serif;
   font-size: 1.08rem;
-  color: black;
   transition: color 150ms ease-in-out;
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -171,10 +285,12 @@ a:hover {
   text-align: center;
 }
 .hero h1 {
-  grid-row: 2/3;
+  font-size: 200%;
+  font-weight: 500;
+  text-align: center;
+  padding: 2px;
 }
 .hero__image {
-  position: relative;
   width: 100%;
   height: 100%;
   z-index: -1;
@@ -183,7 +299,6 @@ a:hover {
 .hero__links {
   flex-wrap: wrap;
   list-style: none;
-  grid-row: 3/4;
 }
 .hero__links li {
   text-align: center;
@@ -206,4 +321,47 @@ a:hover {
   background-color: rgb(162, 11, 11);
   border-color: lightgray;
   transition: transform 200ms ease-out;
+}
+
+.devotions {
+  flex-wrap: wrap;
+  color: blue;
+  align-items: center;
+}
+.devotions img {
+  padding: 1rem;
+}
+.devotions p {
+  text-align: center;
+}
+
+.testimonies h4 {
+  text-align: center;
+}
+.testimonies li {
+  border-style: solid;
+  border-width: 1px;
+  width: 300px;
+  padding: 1rem 0 2rem 1rem;
+}
+.testimonies p {
+  padding: 0 0 2rem 0;
+}
+.testimonies a {
+  text-align: center;
+  width: 15rem;
+  background-color: lightgray;
+  border-radius: 25px;
+  border-style: solid;
+  border-width: 0.28rem;
+  border-color: rgb(162, 11, 11);
+  padding: 1.2rem;
+  margin: 20px;
+  color: white;
+  font-size: 1.4rem;
+}
+.testimonies a:hover {
+  background-color: rgb(162, 11, 11);
+  border-color: darkgray;
+  transition: 200ms ease-out;
 }/*# sourceMappingURL=styles.css.map */

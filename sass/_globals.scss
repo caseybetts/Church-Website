@@ -62,6 +62,7 @@ Typography
 .body {
   font-family: "Gentium Basic";
   margin: 0;
+  text-align: center;
 }
 
 a,
@@ -73,6 +74,8 @@ a:hover {
 // flexbox
 .flex {
   display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
 
   &-jc-sb {
     justify-content: space-between;
@@ -87,25 +90,97 @@ a:hover {
   }
 }
 
+blockquote {
+  font-size: 1rem;
+  color: black;
+  text-align: center;
+}
+
+cite {
+  color: blue;
+  text-align: center;
+}
+
+h2 {
+  color: blue;
+  text-align: center;
+}
+
+li {
+  list-style-type: none;
+}
+
+footer {
+  nav {
+    color: blue;
+    max-width: 20rem;
+    line-height: 1.3px;
+
+    ul {
+      width: 100%;
+      flex-direction: column;
+    }
+    li {
+      padding: 1rem;
+    }
+  }
+
+  section {
+    padding: 1rem;
+  }
+}
 /* ------------------------------------------------
 Basic responsive layout for all browsers:
 --------------------------------------------------*/
 
 .site {
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
+}
+
+.main-areas {
+  background-color: red;
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  img {
+    padding: 1rem;
+  }
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  color: blue;
+  padding: 0;
+
+  p {
+    text-align: center;
+  }
+
+  img {
+    padding: 1rem;
+  }
 }
 
 /*------------------------------------------------
 CSS Grid layout for modern browsers:
 -------------------------------------------------*/
 
-@supports (grid-area: auto) {
-  .site {
-    max-width: none;
-  }
+// @supports (grid-area: auto) {
+//   .site {
+//     max-width: none;
+//   }
 
-  .main-area > * {
-    display: grid;
-  }
-}
+//   .main-area > * {
+//     display: grid;
+//   }
+// }

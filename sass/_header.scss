@@ -9,12 +9,16 @@
     padding: 2px;
     border-bottom-style: solid;
     border-color: black;
+    flex-wrap: nowrap;
 
     div {
+      display: flex;
+      align-items: flex-end;
+
       > a {
+        color: black;
         font-family: "Gentium Basic", sans-serif;
         font-size: 1.08rem;
-        color: green;
         transition: color 150ms ease-in-out;
         padding-top: 1rem;
         padding-bottom: 1rem;

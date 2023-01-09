@@ -1,0 +1,34 @@
+.testimonies {
+  h4 {
+    text-align: center;
+  }
+  li {
+    border-style: solid;
+    border-width: 1px;
+    width: 300px;
+    padding: 1rem 0 2rem 01rem;
+  }
+  p {
+    padding: 0 0 2rem 0;
+  }
+  a {
+    text-align: center;
+    width: 15rem;
+    background-color: lightgray;
+    border-radius: 25px;
+    border-style: solid;
+    border-width: 0.28rem;
+    border-color: rgb(162, 11, 11);
+    padding: 1.2rem;
+    margin: 20px;
+
+    color: white;
+    font-size: 1.4rem;
+  }
+
+  a:hover {
+    background-color: rgb(162, 11, 11);
+    border-color: darkgray;
+    transition: 200ms ease-out;
+  }
+}
