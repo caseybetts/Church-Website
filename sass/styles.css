@@ -126,18 +126,14 @@ Basic responsive layout for all browsers:
   margin: 0 auto;
 }
 
-.main-areas {
-  background-color: red;
-}
-
-.footer {
+.footer > * {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   text-align: center;
 }
-.footer img {
+.footer > * img {
   padding: 1rem;
 }
 
@@ -156,25 +152,50 @@ ul img {
   padding: 1rem;
 }
 
+.main-area {
+  background-color: rgb(241, 241, 241);
+}
+
 /*------------------------------------------------
 CSS Grid layout for modern browsers:
 -------------------------------------------------*/
-.header {
-  grid-row: 1/2;
-  font-size: 2rem;
+@supports (grid-area: auto) {
+  .site {
+    max-width: none;
+  }
+  .main-area > * {
+    display: grid;
+    grid-template-columns: 1fr repeat(2, minmax(auto, 25em)) 1fr;
+  }
+  .quote > * {
+    grid-column: 2/4;
+  }
+  .hero > *,
+.testimonies > *,
+.devotions > * {
+    grid-column: span 4;
+  }
 }
-.header nav {
+.header > * {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  font-size: 2rem;
+  border-bottom-style: solid;
+  border-width: 2px;
+  margin: 0 0.5rem 0 0.5rem;
+}
+.header > * nav {
   position: relative;
   padding: 2px;
-  border-bottom-style: solid;
   border-color: black;
   flex-wrap: nowrap;
 }
-.header nav div {
+.header > * nav div {
   display: flex;
   align-items: flex-end;
 }
-.header nav div > a {
+.header > * nav div > a {
   color: black;
   font-family: "Gentium Basic", sans-serif;
   font-size: 1.08rem;
@@ -182,31 +203,39 @@ CSS Grid layout for modern browsers:
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
-.header nav div > a:not(:last-child) {
+.header > * nav div > a:not(:last-child) {
   margin-right: 50px;
 }
-.header nav div > a:hover {
+.header > * nav div > a:hover {
   color: hsl(35deg, 77%, 62%);
 }
-.header nav div > a:hover + div {
+.header > * nav div > a:hover + div {
   visibility: visible;
 }
-.header nav div > div {
+.header > * nav div > div {
   position: absolute;
   visibility: hidden;
+  flex-direction: column;
   right: 10rem;
   width: 15rem;
+  height: 10rem;
   background-color: rgb(241, 240, 239);
   color: black;
+  z-index: 1000;
 }
-.header nav div > div a {
+.header > * nav div > div a {
   color: teal;
   display: block;
 }
-.header nav div > div:hover {
+.header > * nav div > div:hover {
   visibility: visible;
 }
 
+@media screen and (max-width: 950px) {
+  .header > * {
+    justify-content: space-between;
+  }
+}
 .has-fade {
   visibility: hidden;
 }
@@ -282,6 +311,7 @@ CSS Grid layout for modern browsers:
 
 .hero {
   text-align: center;
+  padding-top: 1rem;
 }
 .hero h1 {
   font-size: 200%;
@@ -292,10 +322,11 @@ CSS Grid layout for modern browsers:
 .hero__image {
   width: 100%;
   height: 100%;
-  z-index: -1;
+  z-index: 0;
   margin: 0;
 }
 .hero__links {
+  flex-direction: row;
   flex-wrap: wrap;
   list-style: none;
 }

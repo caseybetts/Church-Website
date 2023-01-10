@@ -138,14 +138,10 @@ Basic responsive layout for all browsers:
   margin: 0 auto;
 }
 
-.main-areas {
-  background-color: red;
-}
-
-.footer {
+.footer > * {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   text-align: center;
 
@@ -171,16 +167,31 @@ ul {
   }
 }
 
+.main-area {
+  background-color: rgb(241, 241, 241);
+}
+
 /*------------------------------------------------
 CSS Grid layout for modern browsers:
 -------------------------------------------------*/
 
-// @supports (grid-area: auto) {
-//   .site {
-//     max-width: none;
-//   }
+@supports (grid-area: auto) {
+  .site {
+    max-width: none;
+  }
 
-//   .main-area > * {
-//     display: grid;
-//   }
-// }
+  .main-area > * {
+    display: grid;
+    grid-template-columns: 1fr repeat(2, minmax(auto, 25em)) 1fr;
+  }
+
+  .quote > * {
+    grid-column: 2/4;
+  }
+
+  .hero > *,
+  .testimonies > *,
+  .devotions > * {
+    grid-column: span 4;
+  }
+}

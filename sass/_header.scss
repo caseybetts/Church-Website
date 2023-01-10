@@ -1,13 +1,18 @@
 @import "_variables";
 
-.header {
-  grid-row: 1/2;
+.header > * {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
   font-size: 2rem;
+  border-bottom-style: solid;
+  border-width: 2px;
+  margin: 0 0.5rem 0 0.5rem;
 
   nav {
     position: relative;
     padding: 2px;
-    border-bottom-style: solid;
+
     border-color: black;
     flex-wrap: nowrap;
 
@@ -39,10 +44,13 @@
       > div {
         position: absolute;
         visibility: hidden;
+        flex-direction: column;
         right: 10rem;
         width: 15rem;
+        height: 10rem;
         background-color: rgb(241, 240, 239);
         color: black;
+        z-index: 1000;
 
         a {
           color: teal;
@@ -54,5 +62,11 @@
         }
       }
     }
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .header > * {
+    justify-content: space-between;
   }
 }
