@@ -5,9 +5,22 @@
 
   img {
     padding: 1rem;
+    width: 100%;
   }
 
   p {
     text-align: center;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .devotions {
+    ul {
+      justify-content: space-around;
+    }
+    .card {
+      max-width: 13.5em;
+      margin: 0 12px 0 12px;
+    }
   }
 }
