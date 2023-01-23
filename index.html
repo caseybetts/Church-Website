@@ -59,11 +59,13 @@
       </section>
 
       <section class="quote">
-        <blockquote>
+        <blockquote id="content">
           "And he said to them, 'Go into the world and preach the gospel to all
+          <br />
           creation.'"
         </blockquote>
-        <center><cite>MARK 16:15</cite></center>
+        <blockquote>.</blockquote>
+        <cite>MARK 16:15</cite>
       </section>
 
       <section class="testimonies">
@@ -86,35 +88,47 @@
           "For the word of God is living and active, and sharper than any
           two-edged sword..."
         </blockquote>
-        <center><cite>HEBREWS 4:12</cite></center>
+        <cite>HEBREWS 4:12</cite>
       </section>
 
       <section class="devotions">
         <ul>
           <li class="card">
-            <img src="assets\John-15.webp" alt="John 15:7" />
-            <p>Abide in Jesus</p>
+            <a href="#">
+              <img src="assets\John-15.webp" alt="John 15:7" />
+            </a>
+            <a href="#"> <p>Abide in Jesus</p></a>
           </li>
 
           <li class="card">
-            <img src="assets\Romans-15-13.webp" alt="Romans 15:13" />
-            <p>Be Filled with Joy and Peace</p>
+            <a href="#">
+              <img src="assets\Romans-15-13.webp" alt="Romans 15:13"
+            /></a>
+            <a href="#"> <p>Be Filled with Joy and Peace</p></a>
           </li>
           <li class="card mobile-hide">
-            <img src="assets\Romans-8-11.webp" alt="Romans 8:11" />
-            <p>The Spirit Gives Life</p>
+            <a href="#">
+              <img src="assets\Romans-8-11.webp" alt="Romans 8:11"
+            /></a>
+            <a href="#"> <p>The Spirit Gives Life</p></a>
           </li>
           <li class="card mobile-hide">
-            <img src="assets\Gal-5.webp" atl="Galatians 5:22-23" />
-            <p>The Fruit of the Spirit</p>
+            <a href="#">
+              <img src="assets\Gal-5.webp" atl="Galatians 5:22-23"
+            /></a>
+            <a href="#"> <p>The Fruit of the Spirit</p></a>
           </li>
           <li class="card mobile-hide">
-            <img src="assets\Romans-8.15.webp" alt="Romans 8:15" />
-            <p>No Longer Orphans</p>
+            <a href="#">
+              <img src="assets\Romans-8.15.webp" alt="Romans 8:15"
+            /></a>
+            <a href="#"> <p>No Longer Orphans</p></a>
           </li>
           <li class="card mobile-hide">
-            <img src="assets\2-Cor-8.webp" atl="2 Corinthians 8:9" />
-            <p>Becoming Rich In Christ</p>
+            <a href="#">
+              <img src="assets\2-Cor-8.webp" atl="2 Corinthians 8:9"
+            /></a>
+            <a href="#"> <p>Becoming Rich In Christ</p></a>
           </li>
         </ul>
       </section>
@@ -124,16 +138,16 @@
       <section>
         <nav class="flex flex-ai-c flex-jc-sb">
           <ul>
-            <li>Home Page</li>
-            <li>Services</li>
-            <li>Staff</li>
+            <li><a href="#">Home Page</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Staff</a></li>
           </ul>
         </nav>
         <nav class="flex flex-ai-c flex-jc-sb">
           <ul>
-            <li>Campus Ministry</li>
-            <li>Contact</li>
-            <li>Staff Login</li>
+            <li><a href="#">Campus Ministry</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Staff Login</a></li>
           </ul>
         </nav>
         <section>
@@ -152,6 +166,22 @@
         </section>
       </section>
     </footer>
-    <!--<script src="js\script.js"></script>-->
+    <script src="js\script.js"></script>
+    <!-- <script>
+      var cont = document.getElementById("content");
+
+      window.addEventListener("scroll", function () {
+        const current = window.scrollY;
+        console.log(current);
+
+        if (current < 100) {
+          cont.style.fontSize = "30px";
+        } else if (current > 800) {
+          cont.style.fontSize = "45px";
+        } else {
+          cont.style.fontSize = 27 + current / 46 + "px";
+        }
+      });
+    </script> -->
   </body>
 </html>
