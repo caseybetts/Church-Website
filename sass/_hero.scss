@@ -89,3 +89,11 @@
     }
   }
 }
+
+@supports (grid-area: auto) {
+  @media screen and (max-width: 1024px) {
+    .large {
+      visibility: hidden;
+    }
+  }
+}

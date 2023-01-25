@@ -1,0 +1,13 @@
+@supports (grid-area: auto) {
+  @media screen and (min-width: 1024px) {
+    .quote {
+      display: grid;
+      grid-template-columns: 1em repeat(2, 1fr) 1em;
+    }
+
+    .quote > * {
+      grid-column: 2/4;
+      margin: 1em 1em 0 1em;
+    }
+  }
+}

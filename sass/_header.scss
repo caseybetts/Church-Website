@@ -1,26 +1,32 @@
 @import "_variables";
 
-.header > * {
+.header > nav {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
   font-size: 2rem;
   border-bottom-style: solid;
   border-width: 2px;
   margin: 0 0.5rem 0 0.5rem;
 
-  nav {
+  .logo img {
+    width: 100%;
+  }
+
+  .banner_menu {
     position: relative;
     padding: 2px;
 
     border-color: black;
     flex-wrap: nowrap;
+    flex-direction: row;
 
-    div {
-      display: flex;
-      align-items: flex-end;
+    > div {
+      position: relative;
+      align-self: end;
+      padding: 1rem;
 
-      > a {
+      a {
         color: black;
         font-family: "Gentium Basic", sans-serif;
         font-size: 1.08rem;
@@ -29,7 +35,7 @@
         padding-bottom: 1rem;
 
         &:not(:last-child) {
-          margin-right: 50px;
+          margin-right: 3rem;
         }
 
         &:hover {
@@ -39,34 +45,64 @@
         &:hover + div {
           visibility: visible;
         }
+
+        display: block;
       }
+    }
+  }
 
-      > div {
-        position: absolute;
-        visibility: hidden;
-        flex-direction: column;
-        right: 10rem;
-        width: 15rem;
-        height: 10rem;
-        background-color: rgb(241, 240, 239);
-        color: black;
-        z-index: 1000;
+  .sub-menu {
+    position: absolute;
+    visibility: hidden;
+    flex-direction: column;
+    top: 0;
+    background-color: rgb(253, 250, 248);
+    color: black;
+    z-index: 1000;
+    border-radius: 4px;
+    box-shadow: 1px 1px 5px 0px rgb(179, 178, 178);
 
-        a {
-          color: teal;
-          display: block;
-        }
+    &:hover {
+      visibility: visible;
+    }
+  }
+}
 
-        &:hover {
-          visibility: visible;
-        }
+// For small screens
+@media screen and (max-width: 950px) {
+  .header > * {
+    justify-content: space-between;
+    flex-direction: row;
+
+    .large {
+      display: none;
+    }
+
+    .small {
+      display: block;
+    }
+
+    a {
+      width: 60%;
+    }
+
+    .hamburger > span {
+      display: block;
+      width: 26px;
+      height: 2px;
+      background-color: black;
+      margin: 1px;
+
+      &:not(:last-child) {
+        margin-bottom: 3px;
       }
     }
   }
 }
 
-@media screen and (max-width: 950px) {
-  .header > * {
-    justify-content: space-between;
+// For large screens
+@media screen and (min-width: 950px) {
+  .small {
+    display: none;
   }
 }

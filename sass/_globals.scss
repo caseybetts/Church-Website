@@ -96,8 +96,9 @@ blockquote {
 }
 
 cite {
-  color: blue;
-  text-align: center;
+  color: rgb(162, 11, 11);
+  align-self: center;
+  justify-content: center;
 }
 
 h2 {
@@ -186,15 +187,9 @@ CSS Grid layout for modern browsers:
     }
 
     .hero,
-    .quote,
     .testimony {
       display: grid;
       grid-template-columns: 1em repeat(2, 1fr) 1em;
-    }
-
-    .quote > * {
-      grid-column: 2/4;
-      margin: 1em 1em 0 1em;
     }
 
     .mobile-hide {

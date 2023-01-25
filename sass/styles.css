@@ -88,8 +88,9 @@ blockquote {
 }
 
 cite {
-  color: blue;
-  text-align: center;
+  color: rgb(162, 11, 11);
+  align-self: center;
+  justify-content: center;
 }
 
 h2 {
@@ -169,78 +170,100 @@ CSS Grid layout for modern browsers:
       max-width: none;
     }
     .hero,
-.quote,
 .testimony {
       display: grid;
       grid-template-columns: 1em repeat(2, 1fr) 1em;
-    }
-    .quote > * {
-      grid-column: 2/4;
-      margin: 1em 1em 0 1em;
     }
     .mobile-hide {
       display: block;
     }
   }
 }
-.header > * {
+.header > nav {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
   font-size: 2rem;
   border-bottom-style: solid;
   border-width: 2px;
   margin: 0 0.5rem 0 0.5rem;
 }
-.header > * nav {
+.header > nav .logo img {
+  width: 100%;
+}
+.header > nav .banner_menu {
   position: relative;
   padding: 2px;
   border-color: black;
   flex-wrap: nowrap;
+  flex-direction: row;
 }
-.header > * nav div {
-  display: flex;
-  align-items: flex-end;
+.header > nav .banner_menu > div {
+  position: relative;
+  align-self: end;
+  padding: 1rem;
 }
-.header > * nav div > a {
+.header > nav .banner_menu > div a {
   color: black;
   font-family: "Gentium Basic", sans-serif;
   font-size: 1.08rem;
   transition: color 150ms ease-in-out;
   padding-top: 1rem;
   padding-bottom: 1rem;
+  display: block;
 }
-.header > * nav div > a:not(:last-child) {
-  margin-right: 50px;
+.header > nav .banner_menu > div a:not(:last-child) {
+  margin-right: 3rem;
 }
-.header > * nav div > a:hover {
+.header > nav .banner_menu > div a:hover {
   color: hsl(35deg, 77%, 62%);
 }
-.header > * nav div > a:hover + div {
+.header > nav .banner_menu > div a:hover + div {
   visibility: visible;
 }
-.header > * nav div > div {
+.header > nav .sub-menu {
   position: absolute;
   visibility: hidden;
   flex-direction: column;
-  right: 10rem;
-  width: 15rem;
-  height: 10rem;
-  background-color: rgb(241, 240, 239);
+  top: 0;
+  background-color: rgb(253, 250, 248);
   color: black;
   z-index: 1000;
+  border-radius: 4px;
+  box-shadow: 1px 1px 5px 0px rgb(179, 178, 178);
 }
-.header > * nav div > div a {
-  color: teal;
-  display: block;
-}
-.header > * nav div > div:hover {
+.header > nav .sub-menu:hover {
   visibility: visible;
 }
 
 @media screen and (max-width: 950px) {
   .header > * {
     justify-content: space-between;
+    flex-direction: row;
+  }
+  .header > * .large {
+    display: none;
+  }
+  .header > * .small {
+    display: block;
+  }
+  .header > * a {
+    width: 60%;
+  }
+  .header > * .hamburger > span {
+    display: block;
+    width: 26px;
+    height: 2px;
+    background-color: black;
+    margin: 1px;
+  }
+  .header > * .hamburger > span:not(:last-child) {
+    margin-bottom: 3px;
+  }
+}
+@media screen and (min-width: 950px) {
+  .small {
+    display: none;
   }
 }
 .has-fade {
@@ -396,6 +419,13 @@ CSS Grid layout for modern browsers:
     }
   }
 }
+@supports (grid-area: auto) {
+  @media screen and (max-width: 1024px) {
+    .large {
+      visibility: hidden;
+    }
+  }
+}
 .devotions {
   flex-wrap: wrap;
   color: blue;
@@ -447,4 +477,17 @@ CSS Grid layout for modern browsers:
   background-color: rgb(162, 11, 11);
   border-color: darkgray;
   transition: 200ms ease-out;
+}
+
+@supports (grid-area: auto) {
+  @media screen and (min-width: 1024px) {
+    .quote {
+      display: grid;
+      grid-template-columns: 1em repeat(2, 1fr) 1em;
+    }
+    .quote > * {
+      grid-column: 2/4;
+      margin: 1em 1em 0 1em;
+    }
+  }
 }/*# sourceMappingURL=styles.css.map */
