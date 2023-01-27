@@ -61,6 +61,10 @@ Typography
   text-align: center;
 }
 
+.noscroll {
+  overflow: hidden;
+}
+
 a,
 a:visited,
 a:hover {
@@ -187,14 +191,6 @@ CSS Grid layout for modern browsers:
   display: block;
 }
 
-.header .overlay {
-  position: fixed;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px;
-  background: darkblue;
-}
 .header nav {
   display: flex;
   flex-wrap: wrap;
@@ -216,16 +212,14 @@ CSS Grid layout for modern browsers:
   margin-bottom: 3px;
 }
 
-.open .overlay {
-  -webkit-animation: fade-in-background 300ms ease-out forwards;
-          animation: fade-in-background 300ms ease-out forwards;
-}
-.open .mobile-menu {
-  display: block;
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: darkblue;
 }
 
 .mobile-menu {
-  display: none;
   position: absolute;
   background: white;
   font-size: 1.5rem;
@@ -245,6 +239,14 @@ CSS Grid layout for modern browsers:
 }
 .mobile-menu a:hover + div {
   visibility: visible;
+}
+
+.open .mobile-menu {
+  display: block;
+}
+.open #bgoverlay {
+  visibility: visible;
+  opacity: 30%;
 }
 
 .sub-menu {
@@ -305,12 +307,12 @@ CSS Grid layout for modern browsers:
       display: block;
     }
     .header > nav .banner_menu > div a:hover {
-      color: hsl(35deg, 77%, 62%);
+      color: orange;
     }
     .header > nav .banner_menu > div a:hover + div {
       visibility: visible;
     }
-    .header > nav .sub-menu {
+    .header > nav .banner-sub {
       position: absolute;
       visibility: hidden;
       flex-direction: column;
@@ -321,15 +323,22 @@ CSS Grid layout for modern browsers:
       border-radius: 4px;
       box-shadow: 1px 1px 5px 0px rgb(179, 178, 178);
     }
-    .header > nav .sub-menu:hover {
+    .header > nav .banner-sub a {
+      color: red;
+    }
+    .header > nav .banner-sub:hover {
       visibility: visible;
     }
-    .header > nav .sub-menu > * {
+    .header > nav .banner-sub > * {
       padding-left: 1rem;
     }
   }
 }
 .has-fade {
+  visibility: hidden;
+}
+
+#bgoverlay {
   visibility: hidden;
 }
 
@@ -362,12 +371,62 @@ CSS Grid layout for modern browsers:
     opacity: 100%;
   }
 }
-.fade-in {
-  -webkit-animation: fade-in 150ms ease-out forwards;
-          animation: fade-in 150ms ease-out forwards;
-  z-index: 999;
+@-webkit-keyframes fade-in-background {
+  from {
+    visibility: hidden;
+    opacity: 0;
+  }
+  1% {
+    visibility: visible;
+    opacity: 0;
+  }
+  to {
+    visibility: visible;
+    opacity: 30%;
+  }
 }
-
+@keyframes fade-in-background {
+  from {
+    visibility: hidden;
+    opacity: 0;
+  }
+  1% {
+    visibility: visible;
+    opacity: 0;
+  }
+  to {
+    visibility: visible;
+    opacity: 30%;
+  }
+}
+@-webkit-keyframes fade-out-background {
+  from {
+    visibility: visible;
+    opacity: 30%;
+  }
+  1% {
+    visibility: hidden;
+    opacity: 0;
+  }
+  to {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+@keyframes fade-out-background {
+  from {
+    visibility: visible;
+    opacity: 30%;
+  }
+  1% {
+    visibility: hidden;
+    opacity: 0;
+  }
+  to {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
 @-webkit-keyframes fade-out {
   from {
     visibility: visible;
@@ -382,7 +441,6 @@ CSS Grid layout for modern browsers:
     opacity: 0%;
   }
 }
-
 @keyframes fade-out {
   from {
     visibility: visible;
@@ -397,9 +455,26 @@ CSS Grid layout for modern browsers:
     opacity: 0%;
   }
 }
+.fade-in {
+  -webkit-animation: fade-in 200ms ease-out forwards;
+          animation: fade-in 200ms ease-out forwards;
+  z-index: 999;
+}
+
 .fade-out {
   -webkit-animation: fade-out 150ms ease-in forwards;
           animation: fade-out 150ms ease-in forwards;
+}
+
+.fade-in-background {
+  -webkit-animation: fade-in-background 150ms ease-out forwards;
+          animation: fade-in-background 150ms ease-out forwards;
+  z-index: 998;
+}
+
+.fade-out-background {
+  -webkit-animation: fade-out-background 150ms ease-in forwards;
+          animation: fade-out-background 150ms ease-in forwards;
 }
 
 .hero {

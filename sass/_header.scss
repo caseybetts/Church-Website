@@ -9,15 +9,6 @@
 }
 
 .header {
-  .overlay {
-    position: fixed;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
-    background: darkblue;
-  }
-
   nav {
     display: flex;
     flex-wrap: wrap;
@@ -42,18 +33,14 @@
   }
 }
 
-.open {
-  .overlay {
-    animation: fade-in-background 300ms ease-out forwards;
-  }
-
-  .mobile-menu {
-    display: block;
-  }
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: darkblue;
 }
 
 .mobile-menu {
-  display: none;
   position: absolute;
   background: white;
   font-size: 1.5rem;
@@ -74,6 +61,17 @@
     &:hover + div {
       visibility: visible;
     }
+  }
+}
+
+.open {
+  .mobile-menu {
+    display: block;
+  }
+
+  #bgoverlay {
+    visibility: visible;
+    opacity: 30%;
   }
 }
 
@@ -141,7 +139,7 @@
             margin-right: 1.75rem;
 
             &:hover {
-              color: $softOrange;
+              color: orange;
             }
 
             &:hover + div {
@@ -152,8 +150,7 @@
           }
         }
       }
-
-      .sub-menu {
+      .banner-sub {
         position: absolute;
         visibility: hidden;
         flex-direction: column;
@@ -163,6 +160,10 @@
         z-index: 1000;
         border-radius: 4px;
         box-shadow: 1px 1px 5px 0px rgb(179, 178, 178);
+
+        a {
+          color: red;
+        }
 
         &:hover {
           visibility: visible;
