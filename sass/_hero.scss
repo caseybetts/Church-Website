@@ -54,9 +54,7 @@
 
 @supports (grid-area: auto) {
   @media screen and (min-width: 1024px) {
-    .hero > *,
-    .testimonies > *,
-    .devotions > * {
+    .hero > * {
       grid-column: span 4;
     }
 
@@ -73,7 +71,6 @@
 
     .hero h1 {
       display: flex;
-      // align-items: center;
       justify-content: center;
       align-self: flex-end;
       grid-row: 1/2;

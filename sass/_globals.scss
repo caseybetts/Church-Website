@@ -190,8 +190,7 @@ CSS Grid layout for modern browsers:
       max-width: none;
     }
 
-    .hero,
-    .testimony {
+    .hero {
       display: grid;
       grid-template-columns: 1em repeat(2, 1fr) 1em;
     }
