@@ -179,91 +179,154 @@ CSS Grid layout for modern browsers:
     }
   }
 }
-.header > nav {
+.large {
+  display: none;
+}
+
+.small {
+  display: block;
+}
+
+.header .overlay {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  background: darkblue;
+}
+.header nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  font-size: 2rem;
-  border-bottom-style: solid;
-  border-width: 2px;
-  margin: 0 0.5rem 0 0.5rem;
 }
-.header > nav .logo img {
-  width: 100%;
+.header .hamburger {
+  width: 3rem;
+  align-self: center;
+  margin: 2rem;
 }
-.header > nav .banner_menu {
-  position: relative;
-  padding: 2px;
-  border-color: black;
-  flex-wrap: nowrap;
-  flex-direction: row;
+.header .hamburger span {
+  display: block;
+  width: 35px;
+  height: 3px;
+  background-color: black;
+  margin: 1px;
 }
-.header > nav .banner_menu > div {
-  position: relative;
-  align-self: end;
-  padding: 1rem;
+.header .hamburger span:not(:last-child) {
+  margin-bottom: 3px;
 }
-.header > nav .banner_menu > div a {
-  color: black;
-  font-family: "Gentium Basic", sans-serif;
-  font-size: 1.08rem;
-  transition: color 150ms ease-in-out;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+
+.open .overlay {
+  -webkit-animation: fade-in-background 300ms ease-out forwards;
+          animation: fade-in-background 300ms ease-out forwards;
+}
+.open .mobile-menu {
   display: block;
 }
-.header > nav .banner_menu > div a:not(:last-child) {
-  margin-right: 3rem;
+
+.mobile-menu {
+  display: none;
+  position: absolute;
+  background: white;
+  font-size: 1.5rem;
+  width: calc(100% - 3rem);
+  transform: translateX(-30%);
+  height: 100%;
+  left: 70%;
+  top: 100px;
+  margin: 0px 1.5rem;
+  padding: 0.825rem;
 }
-.header > nav .banner_menu > div a:hover {
-  color: hsl(35deg, 77%, 62%);
+.mobile-menu a {
+  position: relative;
+  display: block;
+  text-align: left;
+  padding: 1em;
 }
-.header > nav .banner_menu > div a:hover + div {
+.mobile-menu a:hover + div {
   visibility: visible;
 }
-.header > nav .sub-menu {
+
+.sub-menu {
   position: absolute;
   visibility: hidden;
-  flex-direction: column;
-  top: 0;
+  top: 0px;
+  transform: translateX(-85%);
   background-color: rgb(253, 250, 248);
   color: black;
   z-index: 1000;
   border-radius: 4px;
   box-shadow: 1px 1px 5px 0px rgb(179, 178, 178);
 }
-.header > nav .sub-menu:hover {
+.sub-menu:hover {
   visibility: visible;
 }
-
-@media screen and (max-width: 950px) {
-  .header > * {
-    justify-content: space-between;
-    flex-direction: row;
-  }
-  .header > * .large {
-    display: none;
-  }
-  .header > * .small {
-    display: block;
-  }
-  .header > * a {
-    width: 60%;
-  }
-  .header > * .hamburger > span {
-    display: block;
-    width: 26px;
-    height: 2px;
-    background-color: black;
-    margin: 1px;
-  }
-  .header > * .hamburger > span:not(:last-child) {
-    margin-bottom: 3px;
-  }
+.sub-menu > * {
+  padding-left: 1rem;
 }
-@media screen and (min-width: 950px) {
-  .small {
-    display: none;
+
+@supports (grid-area: auto) {
+  @media screen and (min-width: 1024px) {
+    .small {
+      display: none;
+    }
+    .large {
+      display: flex;
+    }
+    .header > nav {
+      font-size: 2rem;
+      border-bottom-style: solid;
+      border-width: 2px;
+      margin: 0 0.5rem 0 0.5rem;
+    }
+    .header > nav .logo img {
+      width: 100%;
+    }
+    .header > nav .banner_menu {
+      position: relative;
+      padding: 2px;
+      border-color: black;
+      flex-wrap: nowrap;
+      flex-direction: row;
+    }
+    .header > nav .banner_menu > div {
+      position: relative;
+      align-self: end;
+      padding: 1rem;
+    }
+    .header > nav .banner_menu > div a {
+      color: black;
+      font-family: "Gentium Basic", sans-serif;
+      font-size: 1.08rem;
+      transition: color 150ms ease-in-out;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      margin-right: 1.75rem;
+      display: block;
+    }
+    .header > nav .banner_menu > div a:hover {
+      color: hsl(35deg, 77%, 62%);
+    }
+    .header > nav .banner_menu > div a:hover + div {
+      visibility: visible;
+    }
+    .header > nav .sub-menu {
+      position: absolute;
+      visibility: hidden;
+      flex-direction: column;
+      top: 0;
+      background-color: rgb(253, 250, 248);
+      color: black;
+      z-index: 1000;
+      border-radius: 4px;
+      box-shadow: 1px 1px 5px 0px rgb(179, 178, 178);
+    }
+    .header > nav .sub-menu:hover {
+      visibility: visible;
+    }
+    .header > nav .sub-menu > * {
+      padding-left: 1rem;
+    }
   }
 }
 .has-fade {

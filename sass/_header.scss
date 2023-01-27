@@ -1,95 +1,37 @@
 @import "_variables";
 
-.header > nav {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  font-size: 2rem;
-  border-bottom-style: solid;
-  border-width: 2px;
-  margin: 0 0.5rem 0 0.5rem;
-
-  .logo img {
-    width: 100%;
-  }
-
-  .banner_menu {
-    position: relative;
-    padding: 2px;
-
-    border-color: black;
-    flex-wrap: nowrap;
-    flex-direction: row;
-
-    > div {
-      position: relative;
-      align-self: end;
-      padding: 1rem;
-
-      a {
-        color: black;
-        font-family: "Gentium Basic", sans-serif;
-        font-size: 1.08rem;
-        transition: color 150ms ease-in-out;
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-
-        &:not(:last-child) {
-          margin-right: 3rem;
-        }
-
-        &:hover {
-          color: $softOrange;
-        }
-
-        &:hover + div {
-          visibility: visible;
-        }
-
-        display: block;
-      }
-    }
-  }
-
-  .sub-menu {
-    position: absolute;
-    visibility: hidden;
-    flex-direction: column;
-    top: 0;
-    background-color: rgb(253, 250, 248);
-    color: black;
-    z-index: 1000;
-    border-radius: 4px;
-    box-shadow: 1px 1px 5px 0px rgb(179, 178, 178);
-
-    &:hover {
-      visibility: visible;
-    }
-  }
+.large {
+  display: none;
 }
 
-// For small screens
-@media screen and (max-width: 950px) {
-  .header > * {
+.small {
+  display: block;
+}
+
+.header {
+  .overlay {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background: darkblue;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
-    flex-direction: row;
+  }
+  .hamburger {
+    width: 3rem;
+    align-self: center;
+    margin: 2rem;
 
-    .large {
-      display: none;
-    }
-
-    .small {
+    span {
       display: block;
-    }
-
-    a {
-      width: 60%;
-    }
-
-    .hamburger > span {
-      display: block;
-      width: 26px;
-      height: 2px;
+      width: 35px;
+      height: 3px;
       background-color: black;
       margin: 1px;
 
@@ -100,9 +42,136 @@
   }
 }
 
+.open {
+  .overlay {
+    animation: fade-in-background 300ms ease-out forwards;
+  }
+
+  .mobile-menu {
+    display: block;
+  }
+}
+
+.mobile-menu {
+  display: none;
+  position: absolute;
+  background: white;
+  font-size: 1.5rem;
+  width: calc(100% - 3rem);
+  transform: translateX(-30%);
+  height: 100%;
+  left: 70%;
+  top: 100px;
+  margin: 0px 1.5rem;
+  padding: 0.825rem;
+
+  a {
+    position: relative;
+    display: block;
+    text-align: left;
+    padding: 1em;
+
+    &:hover + div {
+      visibility: visible;
+    }
+  }
+}
+
+.sub-menu {
+  position: absolute;
+  visibility: hidden;
+  top: 0px;
+  transform: translateX(-85%);
+  background-color: rgb(253, 250, 248);
+  color: black;
+  z-index: 1000;
+  border-radius: 4px;
+  box-shadow: 1px 1px 5px 0px rgb(179, 178, 178);
+
+  &:hover {
+    visibility: visible;
+  }
+
+  > * {
+    padding-left: 1rem;
+  }
+}
+
 // For large screens
-@media screen and (min-width: 950px) {
-  .small {
-    display: none;
+@supports (grid-area: auto) {
+  @media screen and (min-width: 1024px) {
+    .small {
+      display: none;
+    }
+
+    .large {
+      display: flex;
+    }
+
+    .header > nav {
+      font-size: 2rem;
+      border-bottom-style: solid;
+      border-width: 2px;
+      margin: 0 0.5rem 0 0.5rem;
+
+      .logo img {
+        width: 100%;
+      }
+
+      .banner_menu {
+        position: relative;
+        padding: 2px;
+
+        border-color: black;
+        flex-wrap: nowrap;
+        flex-direction: row;
+
+        > div {
+          position: relative;
+          align-self: end;
+          padding: 1rem;
+
+          a {
+            color: black;
+            font-family: "Gentium Basic", sans-serif;
+            font-size: 1.08rem;
+            transition: color 150ms ease-in-out;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            margin-right: 1.75rem;
+
+            &:hover {
+              color: $softOrange;
+            }
+
+            &:hover + div {
+              visibility: visible;
+            }
+
+            display: block;
+          }
+        }
+      }
+
+      .sub-menu {
+        position: absolute;
+        visibility: hidden;
+        flex-direction: column;
+        top: 0;
+        background-color: rgb(253, 250, 248);
+        color: black;
+        z-index: 1000;
+        border-radius: 4px;
+        box-shadow: 1px 1px 5px 0px rgb(179, 178, 178);
+
+        &:hover {
+          visibility: visible;
+        }
+
+        > * {
+          padding-left: 1rem;
+        }
+      }
+    }
   }
 }

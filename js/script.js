@@ -1,4 +1,34 @@
 console.log("JS is working");
+
+// Hamburger menu
+const btnHamburger = document.querySelector("#btnHamburger");
+const body = document.querySelector("body");
+const header = document.querySelector(".header");
+const fadeElms = document.querySelectorAll(".has-fade");
+
+btnHamburger.addEventListener("click", function () {
+  console.log("hamburger click");
+
+  if (header.classList.contains("open")) {
+    // Close hamburger menu
+    body.classList.remove("noscroll");
+    header.classList.remove("open");
+    fadeElms.forEach(function (element) {
+      element.classList.remove("fade-in");
+      element.classList.add("fade-out");
+    });
+  } else {
+    // Open hamburger menu
+    body.classList.add("noscroll");
+    header.classList.add("open");
+    fadeElms.forEach(function (element) {
+      element.classList.remove("fade-out");
+      element.classList.add("fade-in");
+    });
+  }
+});
+
+// Quote grows with scroll
 console.log("window width: " + window.innerWidth);
 
 if (window.innerWidth > 1334) {
@@ -16,31 +46,3 @@ if (window.innerWidth > 1334) {
     }
   });
 }
-
-// const about_label = document.getElementById("About");
-// const about_dropdown = document.getElementById("About_Dropdown");
-// const aboutElems = document.querySelectorAll(".about");
-// var inAbout = false;
-// var inResources = false;
-
-// aboutElems.addEventListener("click", function () {
-//   console.log("click hamburger");
-//   //Open About Menu
-//   aboutElems.forEach(function (element) {
-//     element.classList.add("unhide");
-//     element.classList.remove("hide");
-//   });
-// });
-
-// about_dropdown.addEventListener("mouseover", function () {
-//   console.log("On Dropdown");
-//   inAbout = true;
-// });
-
-// about_dropdown.addEventListener("mouseout", function () {
-//   console.log("out of about");
-//   fadeElems.forEach(function (element) {
-//     element.classList.remove("fade-in");
-//     element.classList.add("fade-out");
-//   });
-// });
