@@ -1,12 +1,16 @@
+@import "_variables";
+
 .testimonies {
   img {
     opacity: 50%;
   }
   ul {
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     z-index: 1;
+    left: 0;
   }
   h2 {
     font-size: 50px;
@@ -49,10 +53,14 @@
   }
 
   a:hover {
-    background-color: rgb(162, 11, 11);
+    background-color: $marron;
     border-color: darkgray;
     transition: 200ms ease-out;
   }
+}
+
+.buttons {
+  display: none;
 }
 
 @supports (grid-area: auto) {
@@ -60,11 +68,12 @@
     .testimonies {
       display: grid;
       grid-template-columns: 1em repeat(2, 1fr) 1em;
-      grid-template-rows: 6rem 1fr;
+      grid-template-rows: 6rem 1fr 5em;
 
       img {
         grid-column: 1/5;
-        grid-row: 1/3;
+        grid-row: 1/4;
+        width: 100%;
       }
       h2 {
         grid-column: 2/4;
@@ -74,6 +83,35 @@
       ul {
         grid-column: 1/5;
         grid-row: 2;
+      }
+
+      .buttons {
+        display: flex;
+        grid-column: 2/4;
+        grid-row: 3;
+        justify-content: space-evenly;
+        padding-bottom: 2em;
+        z-index: 2;
+
+        button {
+          width: 3em;
+          font-size: 20px;
+          font-weight: 700;
+          color: white;
+          background: none;
+          border: $marron;
+          border-style: solid;
+          border-width: 0.22rem;
+          border-radius: 20px;
+          padding: 0;
+        }
+      }
+
+      button:hover {
+        background-color: $marron;
+        border-color: darkgray;
+        transition: 100ms ease-out;
+        cursor: pointer;
       }
     }
   }
