@@ -51,3 +51,36 @@ if (window.innerWidth > 1334) {
     }
   });
 }
+
+// Select the button
+const testimonies = document.querySelector("#testimonyList");
+const leftbtn = document.querySelector("#left");
+const rightbtn = document.querySelector("#right");
+
+// left button listen for click
+leftbtn.addEventListener("click", function () {
+  // determine where the sliding panel is currently (aka if a left, right  or neither class is applied)
+  if (testimonies.classList.contains("right")) {
+    // remove right class
+    testimonies.classList.remove("right");
+    console.log("removing right");
+  } else {
+    // add the left class
+    testimonies.classList.add("left");
+    console.log("adding left");
+  }
+});
+
+// right button listen for click
+rightbtn.addEventListener("click", function () {
+  // determine where the sliding panel is currently
+  if (testimonies.classList.contains("left")) {
+    // remove left class
+    testimonies.classList.remove("left");
+    console.log("removing left");
+  } else {
+    // add the right class
+    testimonies.classList.add("right");
+    console.log("adding right");
+  }
+});

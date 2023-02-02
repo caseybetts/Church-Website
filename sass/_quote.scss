@@ -3,6 +3,7 @@
     .quote {
       display: grid;
       grid-template-columns: 1em repeat(2, 1fr) 1em;
+      margin: 8em 0 8em 0;
     }
 
     .quote > * {
