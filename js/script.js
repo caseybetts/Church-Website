@@ -60,27 +60,43 @@ const rightbtn = document.querySelector("#right");
 // left button listen for click
 leftbtn.addEventListener("click", function () {
   // determine where the sliding panel is currently (aka if a left, right  or neither class is applied)
-  if (testimonies.classList.contains("right")) {
+  if (testimonies.classList.contains("moreright")) {
+    // remove moreright class
+    testimonies.classList.remove("moreright");
+    // add right class
+    testimonies.classList.add("right");
+  } else if (testimonies.classList.contains("right")) {
     // remove right class
     testimonies.classList.remove("right");
-    console.log("removing right");
+  } else if (testimonies.classList.contains("left")) {
+    //remove left class
+    testimonies.classList.remove("left");
+    // add moreleft class
+    testimonies.classList.add("moreleft");
   } else {
     // add the left class
     testimonies.classList.add("left");
-    console.log("adding left");
   }
 });
 
 // right button listen for click
 rightbtn.addEventListener("click", function () {
   // determine where the sliding panel is currently
-  if (testimonies.classList.contains("left")) {
+  if (testimonies.classList.contains("moreleft")) {
+    // remove moreleft class
+    testimonies.classList.remove("moreleft");
+    // add left class
+    testimonies.classList.add("left");
+  } else if (testimonies.classList.contains("left")) {
     // remove left class
     testimonies.classList.remove("left");
-    console.log("removing left");
+  } else if (testimonies.classList.contains("right")) {
+    // remove right class
+    testimonies.classList.remove("right");
+    // add moreright class
+    testimonies.classList.add("moreright");
   } else {
     // add the right class
     testimonies.classList.add("right");
-    console.log("adding right");
   }
 });
