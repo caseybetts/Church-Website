@@ -3,7 +3,7 @@ console.log("JS is working");
 // Hamburger menu
 const btnHamburger = document.querySelector("#btnHamburger");
 const body = document.querySelector("body");
-const header = document.querySelector(".header");
+// const header = document.querySelector(".header");
 const fadeElms = document.querySelectorAll(".has-fade");
 const background = document.querySelector("#bgoverlay");
 
@@ -59,6 +59,7 @@ const rightbtn = document.querySelector("#right");
 
 // left button listen for click
 leftbtn.addEventListener("click", function () {
+  console.log("left click");
   // determine where the sliding panel is currently (aka if a left, right  or neither class is applied)
   if (testimonies.classList.contains("moreright")) {
     // remove moreright class
@@ -68,14 +69,18 @@ leftbtn.addEventListener("click", function () {
   } else if (testimonies.classList.contains("right")) {
     // remove right class
     testimonies.classList.remove("right");
+    // add center class
+    testimonies.classList.add("center");
+  } else if (testimonies.classList.contains("center")) {
+    // remove center
+    testimonies.classList.remove("center");
+    // add left
+    testimonies.classList.add("left");
   } else if (testimonies.classList.contains("left")) {
     //remove left class
     testimonies.classList.remove("left");
     // add moreleft class
     testimonies.classList.add("moreleft");
-  } else {
-    // add the left class
-    testimonies.classList.add("left");
   }
 });
 
@@ -88,15 +93,19 @@ rightbtn.addEventListener("click", function () {
     // add left class
     testimonies.classList.add("left");
   } else if (testimonies.classList.contains("left")) {
-    // remove left class
+    // remove left
     testimonies.classList.remove("left");
+    // add center
+    testimonies.classList.add("center");
+  } else if (testimonies.classList.contains("center")) {
+    // remove center
+    testimonies.classList.remove("center");
+    // add right
+    testimonies.classList.add("right");
   } else if (testimonies.classList.contains("right")) {
     // remove right class
     testimonies.classList.remove("right");
     // add moreright class
     testimonies.classList.add("moreright");
-  } else {
-    // add the right class
-    testimonies.classList.add("right");
   }
 });

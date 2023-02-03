@@ -29,6 +29,7 @@
     border-style: solid;
     border-width: 1px;
     width: 20rem;
+    height: 30rem;
     padding: 1rem 1rem 2rem 01rem;
     background-color: rgba(153, 152, 150, 0.5);
     margin: 1rem;
@@ -68,23 +69,27 @@
   @media screen and (min-width: 1024px) {
     .testimonies {
       display: grid;
-      grid-template-columns: 1em repeat(2, 1fr) 1em;
-      grid-template-rows: 6rem 1fr 5em;
+      position: relative;
+      grid-template-columns: 100%;
+      grid-template-rows: 6em 35rem 5em;
+      overflow: hidden;
 
       img {
-        grid-column: 1/5;
-        grid-row: 1/4;
+        grid-column: 1;
+        grid-row: 1/5;
         margin: 0 0 0 0;
         height: 100%;
       }
       h2 {
-        grid-column: 2/4;
+        grid-column: 1;
         grid-row: 1;
       }
 
       ul {
-        grid-column: 1/5;
-        grid-row: 2;
+        flex-direction: row;
+        width: 200%;
+        grid-column: 1;
+        grid-row: 2/3;
       }
 
       li {
@@ -93,7 +98,7 @@
       }
       .buttons {
         display: flex;
-        grid-column: 2/4;
+        grid-column: 1;
         grid-row: 3;
         justify-content: space-evenly;
         padding-bottom: 2em;
@@ -121,20 +126,24 @@
       }
     }
 
-    .left {
-      left: -22em;
+    .moreleft {
+      left: -50em;
     }
 
-    .moreleft {
-      left: -44em;
+    .left {
+      left: -40em;
+    }
+
+    .center {
+      left: -30em;
     }
 
     .right {
-      left: 22em;
+      left: -20em;
     }
 
     .moreright {
-      left: 44em;
+      left: 0;
     }
   }
 
