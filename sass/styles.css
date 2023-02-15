@@ -469,7 +469,7 @@ CSS Grid layout for modern browsers:
       grid-column: span 4;
     }
     .hero {
-      grid-template-rows: 1fr 1fr;
+      grid-template-rows: 25em 25em;
     }
     .hero img {
       width: 100%;

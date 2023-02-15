@@ -129,3 +129,21 @@ rightbtn.addEventListener("click", function () {
     testimonies.classList.add("right_three");
   }
 });
+
+// Timed Change of Hero Image
+const heroImage = document.querySelector("#HeroImage");
+console.log(heroImage.src);
+
+function changeImageClass() {
+  if (heroImage.src == "http://127.0.0.1:5500/church-worship.jpg") {
+    console.log("changing church-worship to praising-god");
+    heroImage.src = "praising-god.jpg";
+    console.log(heroImage.src);
+  } else if (heroImage.src == "http://127.0.0.1:5500/praising-god.jpg") {
+    console.log("changing praising-god to church-worship");
+    heroImage.src = "church-worship.jpg";
+    console.log(heroImage.src);
+  }
+}
+
+setInterval(changeImageClass, 5000);
