@@ -1,6 +1,10 @@
 @import "_variables";
 
 .testimonies {
+  .hide {
+    display: none;
+  }
+
   img {
     opacity: 50%;
     width: 100%;
@@ -34,6 +38,7 @@
     background-color: rgba(153, 152, 150, 0.5);
     margin: 1rem;
   }
+
   p {
     padding: 0 0 2rem 0;
     font-size: 21px;
@@ -68,6 +73,10 @@
 @supports (grid-area: auto) {
   @media screen and (min-width: 1024px) {
     .testimonies {
+      .hide {
+        display: flex;
+      }
+
       display: grid;
       position: relative;
       grid-template-columns: 100%;
@@ -87,13 +96,14 @@
 
       ul {
         flex-direction: row;
-        width: 200%;
+        width: 400em;
         grid-column: 1;
         grid-row: 2/3;
+        transition: left 0.5s;
       }
 
       li {
-        width: 19rem;
+        width: 20em;
         color: yellow;
       }
       .buttons {
@@ -126,24 +136,32 @@
       }
     }
 
-    .moreleft {
-      left: -50em;
+    .right_three {
+      left: -340em;
     }
 
-    .left {
-      left: -40em;
+    .right_two {
+      left: -280em;
+    }
+
+    .right_one {
+      left: -220em;
     }
 
     .center {
-      left: -30em;
+      left: -150em;
     }
 
-    .right {
+    .left_one {
+      left: -90em;
+    }
+
+    .left_two {
       left: -20em;
     }
 
-    .moreright {
-      left: 0;
+    .left_three {
+      left: 40em;
     }
   }
 

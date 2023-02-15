@@ -61,51 +61,71 @@ const rightbtn = document.querySelector("#right");
 leftbtn.addEventListener("click", function () {
   console.log("left click");
   // determine where the sliding panel is currently (aka if a left, right  or neither class is applied)
-  if (testimonies.classList.contains("moreright")) {
+  if (testimonies.classList.contains("right_three")) {
     // remove moreright class
-    testimonies.classList.remove("moreright");
+    testimonies.classList.remove("right_three");
     // add right class
-    testimonies.classList.add("right");
-  } else if (testimonies.classList.contains("right")) {
+    testimonies.classList.add("right_two");
+  } else if (testimonies.classList.contains("right_two")) {
+    // remove moreright class
+    testimonies.classList.remove("right_two");
+    // add right class
+    testimonies.classList.add("right_one");
+  } else if (testimonies.classList.contains("right_one")) {
     // remove right class
-    testimonies.classList.remove("right");
+    testimonies.classList.remove("right_one");
     // add center class
     testimonies.classList.add("center");
   } else if (testimonies.classList.contains("center")) {
     // remove center
     testimonies.classList.remove("center");
     // add left
-    testimonies.classList.add("left");
-  } else if (testimonies.classList.contains("left")) {
+    testimonies.classList.add("left_one");
+  } else if (testimonies.classList.contains("left_one")) {
     //remove left class
-    testimonies.classList.remove("left");
+    testimonies.classList.remove("left_one");
     // add moreleft class
-    testimonies.classList.add("moreleft");
+    testimonies.classList.add("left_two");
+  } else if (testimonies.classList.contains("left_two")) {
+    //remove left class
+    testimonies.classList.remove("left_two");
+    // add moreleft class
+    testimonies.classList.add("left_three");
   }
 });
 
 // right button listen for click
 rightbtn.addEventListener("click", function () {
   // determine where the sliding panel is currently
-  if (testimonies.classList.contains("moreleft")) {
+  if (testimonies.classList.contains("left_three")) {
     // remove moreleft class
-    testimonies.classList.remove("moreleft");
+    testimonies.classList.remove("left_three");
     // add left class
-    testimonies.classList.add("left");
-  } else if (testimonies.classList.contains("left")) {
+    testimonies.classList.add("left_two");
+  } else if (testimonies.classList.contains("left_two")) {
+    // remove moreleft class
+    testimonies.classList.remove("left_two");
+    // add left class
+    testimonies.classList.add("left_one");
+  } else if (testimonies.classList.contains("left_one")) {
     // remove left
-    testimonies.classList.remove("left");
+    testimonies.classList.remove("left_one");
     // add center
     testimonies.classList.add("center");
   } else if (testimonies.classList.contains("center")) {
     // remove center
     testimonies.classList.remove("center");
     // add right
-    testimonies.classList.add("right");
-  } else if (testimonies.classList.contains("right")) {
+    testimonies.classList.add("right_one");
+  } else if (testimonies.classList.contains("right_one")) {
     // remove right class
-    testimonies.classList.remove("right");
+    testimonies.classList.remove("right_one");
     // add moreright class
-    testimonies.classList.add("moreright");
+    testimonies.classList.add("right_two");
+  } else if (testimonies.classList.contains("right_two")) {
+    // remove right class
+    testimonies.classList.remove("right_two");
+    // add moreright class
+    testimonies.classList.add("right_three");
   }
 });

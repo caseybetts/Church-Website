@@ -341,21 +341,6 @@ CSS Grid layout for modern browsers:
   visibility: hidden;
 }
 
-@-webkit-keyframes fade-in {
-  from {
-    visibility: hidden;
-    opacity: 0;
-  }
-  1% {
-    visibility: visible;
-    opacity: 0;
-  }
-  to {
-    visibility: visible;
-    opacity: 100%;
-  }
-}
-
 @keyframes fade-in {
   from {
     visibility: hidden;
@@ -368,20 +353,6 @@ CSS Grid layout for modern browsers:
   to {
     visibility: visible;
     opacity: 100%;
-  }
-}
-@-webkit-keyframes fade-in-background {
-  from {
-    visibility: hidden;
-    opacity: 0;
-  }
-  1% {
-    visibility: visible;
-    opacity: 0;
-  }
-  to {
-    visibility: visible;
-    opacity: 30%;
   }
 }
 @keyframes fade-in-background {
@@ -398,20 +369,6 @@ CSS Grid layout for modern browsers:
     opacity: 30%;
   }
 }
-@-webkit-keyframes fade-out-background {
-  from {
-    visibility: visible;
-    opacity: 30%;
-  }
-  1% {
-    visibility: hidden;
-    opacity: 0;
-  }
-  to {
-    visibility: hidden;
-    opacity: 0;
-  }
-}
 @keyframes fade-out-background {
   from {
     visibility: visible;
@@ -424,20 +381,6 @@ CSS Grid layout for modern browsers:
   to {
     visibility: hidden;
     opacity: 0;
-  }
-}
-@-webkit-keyframes fade-out {
-  from {
-    visibility: visible;
-    opacity: 100%;
-  }
-  1% {
-    visibility: hidden;
-    opacity: 0%;
-  }
-  to {
-    visibility: hidden;
-    opacity: 0%;
   }
 }
 @keyframes fade-out {
@@ -455,25 +398,21 @@ CSS Grid layout for modern browsers:
   }
 }
 .fade-in {
-  -webkit-animation: fade-in 200ms ease-out forwards;
-          animation: fade-in 200ms ease-out forwards;
+  animation: fade-in 200ms ease-out forwards;
   z-index: 999;
 }
 
 .fade-out {
-  -webkit-animation: fade-out 150ms ease-in forwards;
-          animation: fade-out 150ms ease-in forwards;
+  animation: fade-out 150ms ease-in forwards;
 }
 
 .fade-in-background {
-  -webkit-animation: fade-in-background 150ms ease-out forwards;
-          animation: fade-in-background 150ms ease-out forwards;
+  animation: fade-in-background 150ms ease-out forwards;
   z-index: 998;
 }
 
 .fade-out-background {
-  -webkit-animation: fade-out-background 150ms ease-in forwards;
-          animation: fade-out-background 150ms ease-in forwards;
+  animation: fade-out-background 150ms ease-in forwards;
 }
 
 .hero {
@@ -584,6 +523,9 @@ CSS Grid layout for modern browsers:
     margin: 0 12px 0 12px;
   }
 }
+.testimonies .hide {
+  display: none;
+}
 .testimonies img {
   opacity: 50%;
   width: 100%;
@@ -654,6 +596,9 @@ CSS Grid layout for modern browsers:
       grid-template-rows: 6em 35rem 5em;
       overflow: hidden;
     }
+    .testimonies .hide {
+      display: flex;
+    }
     .testimonies img {
       grid-column: 1;
       grid-row: 1/5;
@@ -666,12 +611,13 @@ CSS Grid layout for modern browsers:
     }
     .testimonies ul {
       flex-direction: row;
-      width: 200%;
+      width: 400em;
       grid-column: 1;
       grid-row: 2/3;
+      transition: left 0.5s;
     }
     .testimonies li {
-      width: 19rem;
+      width: 20em;
       color: yellow;
     }
     .testimonies .buttons {
@@ -700,20 +646,26 @@ CSS Grid layout for modern browsers:
       transition: 100ms ease-out;
       cursor: pointer;
     }
-    .moreleft {
-      left: -50em;
+    .right_three {
+      left: -340em;
     }
-    .left {
-      left: -40em;
+    .right_two {
+      left: -280em;
+    }
+    .right_one {
+      left: -220em;
     }
     .center {
-      left: -30em;
+      left: -150em;
     }
-    .right {
+    .left_one {
+      left: -90em;
+    }
+    .left_two {
       left: -20em;
     }
-    .moreright {
-      left: 0;
+    .left_three {
+      left: 40em;
     }
   }
   @media screen and (min-width: 1300px) {
