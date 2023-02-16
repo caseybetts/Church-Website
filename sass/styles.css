@@ -645,12 +645,14 @@ CSS Grid layout for modern browsers:
   z-index: 1;
 }
 .testimonies h2 {
+  color: whitesmoke;
   font-size: 50px;
   font-weight: 300;
   margin: 1rem;
   z-index: 1;
 }
 .testimonies h4 {
+  color: whitesmoke;
   text-align: center;
   font-size: 25px;
 }
@@ -659,13 +661,16 @@ CSS Grid layout for modern browsers:
   flex-direction: column;
   border-style: solid;
   border-width: 1px;
+  border-color: black;
   width: 20rem;
   height: 30rem;
   padding: 1rem 1rem 2rem 1rem;
   background-color: rgba(153, 152, 150, 0.5);
   margin: 1rem;
+  justify-content: space-between;
 }
 .testimonies p {
+  color: whitesmoke;
   padding: 0 0 2rem 0;
   font-size: 21px;
 }
@@ -673,7 +678,7 @@ CSS Grid layout for modern browsers:
   align-self: center;
   text-align: center;
   width: 15rem;
-  background-color: lightgray;
+  background-color: none;
   border-radius: 25px;
   border-style: solid;
   border-width: 0.28rem;
@@ -720,7 +725,7 @@ CSS Grid layout for modern browsers:
       width: 400em;
       grid-column: 1;
       grid-row: 2/3;
-      transition: left 0.5s;
+      transition: left 1s;
     }
     .testimonies li {
       width: 20em;

@@ -6,6 +6,7 @@ const body = document.querySelector("body");
 // const header = document.querySelector(".header");
 const fadeElms = document.querySelectorAll(".has-fade");
 const background = document.querySelector("#bgoverlay");
+var right_end = false;
 
 btnHamburger.addEventListener("click", function () {
   console.log("hamburger click");
@@ -57,9 +58,7 @@ const testimonies = document.querySelector("#testimonyList");
 const leftbtn = document.querySelector("#left");
 const rightbtn = document.querySelector("#right");
 
-// left button listen for click
-leftbtn.addEventListener("click", function () {
-  console.log("left click");
+function moveleft() {
   // determine where the sliding panel is currently (aka if a left, right  or neither class is applied)
   if (testimonies.classList.contains("right_three")) {
     // remove moreright class
@@ -91,11 +90,14 @@ leftbtn.addEventListener("click", function () {
     testimonies.classList.remove("left_two");
     // add moreleft class
     testimonies.classList.add("left_three");
+    right_end = false;
   }
-});
+}
 
-// right button listen for click
-rightbtn.addEventListener("click", function () {
+// left button listen for click
+leftbtn.addEventListener("click", moveleft);
+
+function moveright() {
   // determine where the sliding panel is currently
   if (testimonies.classList.contains("left_three")) {
     // remove moreleft class
@@ -127,8 +129,23 @@ rightbtn.addEventListener("click", function () {
     testimonies.classList.remove("right_two");
     // add moreright class
     testimonies.classList.add("right_three");
+    right_end = true;
   }
-});
+}
+
+// right button listen for click
+rightbtn.addEventListener("click", moveright);
+
+// Timed motion of the testimony caousel
+setInterval(function () {
+  if (right_end) {
+    moveleft();
+    console.log(right_end);
+  } else {
+    moveright();
+    console.log(right_end);
+  }
+}, 7000);
 
 // Timed Change of Hero Image
 // const heroImage = document.querySelector("#HeroImage");
