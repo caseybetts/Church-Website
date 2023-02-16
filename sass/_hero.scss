@@ -6,7 +6,7 @@
     font-size: 4vw;
     font-weight: 500;
     text-align: center;
-    z-index: 1;
+    z-index: 10;
     padding: 1rem 0 6rem 0;
     margin: 0;
   }
@@ -22,7 +22,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     list-style: none;
-    z-index: 1;
+    z-index: 10;
 
     li {
       text-align: center;
@@ -92,20 +92,8 @@
       align-self: flex-start;
     }
 
-    // Changing size to 'zoom' in on the pictures
-    @keyframes grow {
-      0% {
-        width: 100%;
-        height: 100%;
-      }
-      100% {
-        width: 120%;
-        height: 120%;
-      }
-    }
-
-    // Changing opacity to change pictures
-    @keyframes cf3FadeInOut {
+    // Changing the top image opacity and size
+    @keyframes top {
       0% {
         opacity: 1;
         width: 100%;
@@ -113,14 +101,21 @@
         left: 0;
         top: 0;
       }
-      45% {
+      5% {
+        opacity: 1;
+        width: 101%;
+        height: 101%;
+        left: -1%;
+        top: -1%;
+      }
+      30% {
         opacity: 1;
         width: 105%;
         height: 105%;
         left: -5%;
         top: -5%;
       }
-      55% {
+      33% {
         opacity: 0;
         width: 106%;
         height: 106%;
@@ -134,13 +129,76 @@
       }
     }
 
+    // Changing the middle image opacity and size
+    @keyframes middle {
+      0% {
+        opacity: 1;
+        width: 100%;
+        height: 100%;
+      }
+      30% {
+        opacity: 1;
+        width: 100%;
+        height: 100%;
+      }
+      60% {
+        opacity: 1;
+        width: 120%;
+        height: 120%;
+      }
+      66% {
+        opacity: 0;
+        width: 122%;
+        height: 122%;
+      }
+      100% {
+        opacity: 0;
+        width: 120%;
+        height: 120%;
+      }
+    }
+
+    // Changing the bottom image size
+    @keyframes bottom {
+      0% {
+        width: 100%;
+        height: 100%;
+      }
+      1% {
+        width: 100%;
+        height: 100%;
+      }
+      100% {
+        width: 120%;
+        height: 120%;
+      }
+    }
+
     .top {
-      z-index: 1;
-      animation-name: cf3FadeInOut;
+      z-index: 2;
+      animation-name: top;
       animation-timing-function: cubic-bezier(0.46, 0.46, 1, 1);
       animation-iteration-count: infinite;
-      animation-duration: 9s;
+      animation-duration: 30s;
       animation-direction: normal;
+    }
+
+    .middle {
+      z-index: 1;
+      animation-name: middle;
+      animation-timing-function: cubic-bezier(0.46, 0.46, 1, 1);
+      animation-iteration-count: infinite;
+      animation-duration: 30s;
+      animation-direction: normal;
+    }
+
+    .bottom {
+      animation-name: bottom;
+      animation-timing-function: cubic-bezier(0.46, 0.46, 1, 1);
+      animation-iteration-count: infinite;
+      animation-duration: 30s;
+      animation-direction: normal;
+      right: 0;
     }
   }
 }

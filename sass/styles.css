@@ -423,7 +423,7 @@ CSS Grid layout for modern browsers:
   font-size: 4vw;
   font-weight: 500;
   text-align: center;
-  z-index: 1;
+  z-index: 10;
   padding: 1rem 0 6rem 0;
   margin: 0;
 }
@@ -437,7 +437,7 @@ CSS Grid layout for modern browsers:
   flex-direction: row;
   flex-wrap: wrap;
   list-style: none;
-  z-index: 1;
+  z-index: 10;
 }
 .hero ul li {
   text-align: center;
@@ -497,17 +497,7 @@ CSS Grid layout for modern browsers:
       display: flex;
       align-self: flex-start;
     }
-    @keyframes grow {
-      0% {
-        width: 100%;
-        height: 100%;
-      }
-      100% {
-        width: 120%;
-        height: 120%;
-      }
-    }
-    @keyframes cf3FadeInOut {
+    @keyframes top {
       0% {
         opacity: 1;
         width: 100%;
@@ -515,14 +505,21 @@ CSS Grid layout for modern browsers:
         left: 0;
         top: 0;
       }
-      45% {
+      5% {
+        opacity: 1;
+        width: 101%;
+        height: 101%;
+        left: -1%;
+        top: -1%;
+      }
+      30% {
         opacity: 1;
         width: 105%;
         height: 105%;
         left: -5%;
         top: -5%;
       }
-      55% {
+      33% {
         opacity: 0;
         width: 106%;
         height: 106%;
@@ -535,13 +532,70 @@ CSS Grid layout for modern browsers:
         height: 100%;
       }
     }
+    @keyframes middle {
+      0% {
+        opacity: 1;
+        width: 100%;
+        height: 100%;
+      }
+      30% {
+        opacity: 1;
+        width: 100%;
+        height: 100%;
+      }
+      60% {
+        opacity: 1;
+        width: 120%;
+        height: 120%;
+      }
+      66% {
+        opacity: 0;
+        width: 122%;
+        height: 122%;
+      }
+      100% {
+        opacity: 0;
+        width: 120%;
+        height: 120%;
+      }
+    }
+    @keyframes bottom {
+      0% {
+        width: 100%;
+        height: 100%;
+      }
+      1% {
+        width: 100%;
+        height: 100%;
+      }
+      100% {
+        width: 120%;
+        height: 120%;
+      }
+    }
     .top {
-      z-index: 1;
-      animation-name: cf3FadeInOut;
+      z-index: 2;
+      animation-name: top;
       animation-timing-function: cubic-bezier(0.46, 0.46, 1, 1);
       animation-iteration-count: infinite;
-      animation-duration: 9s;
+      animation-duration: 30s;
       animation-direction: normal;
+    }
+    .middle {
+      z-index: 1;
+      animation-name: middle;
+      animation-timing-function: cubic-bezier(0.46, 0.46, 1, 1);
+      animation-iteration-count: infinite;
+      animation-duration: 30s;
+      animation-direction: normal;
+    }
+    .bottom {
+      animation-name: bottom;
+      animation-timing-function: cubic-bezier(0.46, 0.46, 1, 1);
+      animation-iteration-count: infinite;
+      animation-duration: 30s;
+      animation-direction: normal;
+      right: 0;
     }
   }
 }
