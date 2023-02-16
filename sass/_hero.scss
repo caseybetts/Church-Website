@@ -1,5 +1,4 @@
 .hero {
-  text-align: center;
   padding-top: 1rem;
   max-height: 55rem;
 
@@ -15,8 +14,8 @@
   img {
     width: 100%;
     height: 100%;
-    z-index: 0;
     margin: 0;
+    transition: src 200ms;
   }
 
   ul {
@@ -62,11 +61,19 @@
       grid-template-rows: 25em 25em;
     }
 
-    .hero img {
+    .hero div {
+      position: relative;
       width: 100%;
       grid-column: 1/5;
       grid-row: 1/3;
       justify-content: center;
+      overflow: hidden;
+    }
+
+    .hero img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
     }
 
     .hero h1 {
@@ -83,6 +90,57 @@
       grid-column: 2/4;
       display: flex;
       align-self: flex-start;
+    }
+
+    // Changing size to 'zoom' in on the pictures
+    @keyframes grow {
+      0% {
+        width: 100%;
+        height: 100%;
+      }
+      100% {
+        width: 120%;
+        height: 120%;
+      }
+    }
+
+    // Changing opacity to change pictures
+    @keyframes cf3FadeInOut {
+      0% {
+        opacity: 1;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+      }
+      45% {
+        opacity: 1;
+        width: 105%;
+        height: 105%;
+        left: -5%;
+        top: -5%;
+      }
+      55% {
+        opacity: 0;
+        width: 106%;
+        height: 106%;
+        left: -6%;
+        top: -6%;
+      }
+      100% {
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .top {
+      z-index: 1;
+      animation-name: cf3FadeInOut;
+      animation-timing-function: cubic-bezier(0.46, 0.46, 1, 1);
+      animation-iteration-count: infinite;
+      animation-duration: 9s;
+      animation-direction: normal;
     }
   }
 }
