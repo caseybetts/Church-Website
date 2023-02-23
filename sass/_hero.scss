@@ -1,6 +1,5 @@
 .hero {
   padding-top: 1rem;
-  max-height: 55rem;
 
   h1 {
     font-size: 4vw;
@@ -27,18 +26,20 @@
     li {
       text-align: center;
       width: 15rem;
-      background-color: lightgray;
+      background-color: rgba(153, 152, 150, 0.5);
       border-radius: 25px;
       border-style: solid;
-      border-width: 0.28rem;
+      border-width: 0.18rem;
       border-color: rgb(162, 11, 11);
       padding-top: 1.2rem;
       padding-bottom: 1.2rem;
-      margin: 20px;
+      margin: 30px;
 
       a {
         color: white;
         font-size: 1.4rem;
+        font-weight: 600;
+        text-shadow: 1px 1px 6px black;
       }
     }
 
@@ -53,12 +54,13 @@
 
 @supports (grid-area: auto) {
   @media screen and (min-width: 1024px) {
-    .hero > * {
-      grid-column: span 4;
-    }
-
     .hero {
       grid-template-rows: 25em 25em;
+      max-height: 55rem;
+    }
+
+    .hero > * {
+      grid-column: span 4;
     }
 
     .hero div {

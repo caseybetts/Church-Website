@@ -1,6 +1,8 @@
 @import "_variables";
 
 .testimonies {
+  background-color: rgb(139, 85, 85, 0.45);
+
   .hide {
     display: none;
   }
@@ -12,11 +14,11 @@
   }
   ul {
     position: relative;
-    display: flex;
     flex-direction: row;
     justify-content: space-around;
     z-index: 1;
   }
+
   h2 {
     color: whitesmoke;
     font-size: 50px;
@@ -38,7 +40,7 @@
     width: 20rem;
     height: 30rem;
     padding: 1rem 1rem 2rem 01rem;
-    background-color: rgba(153, 152, 150, 0.5);
+    background-color: rgba(165, 82, 54, 0.5);
     margin: 1rem;
     justify-content: space-between;
   }
@@ -48,14 +50,13 @@
     padding: 0 0 2rem 0;
     font-size: 21px;
   }
-  a {
+  button {
     align-self: center;
     text-align: center;
     width: 15rem;
-    background-color: none;
     border-radius: 25px;
     border-style: solid;
-    border-width: 0.28rem;
+    border-width: 0.18rem;
     border-color: rgb(162, 11, 11);
     padding: 1.2rem;
     margin: 20px;
@@ -68,9 +69,76 @@
     border-color: darkgray;
     transition: 200ms ease-out;
   }
+
+  .open {
+    display: block;
+  }
+
+  .full {
+    height: 30rem;
+    width: 27rem;
+    padding-top: 1rem;
+    margin-top: 1rem;
+    background-color: rgb(165, 82, 54, 1);
+    // transform: scaleX(1.15);
+    transition: width 500ms cubic-bezier(0.47, 0, 0.75, 0.72);
+  }
 }
 
-.buttons {
+.full_testimony {
+  position: fixed;
+  z-index: 10;
+  top: 50%;
+  left: 36%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80%;
+  justify-content: center;
+  flex-direction: column;
+  border-style: none;
+  background-color: rgba(106, 171, 214, 0.85);
+  padding: 4rem;
+
+  button {
+    margin-left: auto;
+    margin-bottom: 0;
+    background: none;
+    width: 2rem;
+    border-style: none;
+    padding: 1rem;
+    color: blue;
+    font-size: 2.4rem;
+    font-family: monospace;
+  }
+
+  h4 {
+    margin-top: 0;
+    font-size: 34px;
+  }
+
+  p {
+    font-size: 25px;
+  }
+}
+
+.t_overlay {
+  position: fixed;
+  width: 100vw;
+  height: 110vw;
+  z-index: 10;
+  top: 0;
+  background: #00008b84;
+}
+
+.no_display {
+  display: none;
+}
+
+.flex_display {
+  display: flex;
+}
+
+#carousel-dots {
   display: none;
 }
 
@@ -86,6 +154,7 @@
       grid-template-columns: 100%;
       grid-template-rows: 6em 35rem 5em;
       overflow: hidden;
+      background-color: rgb(241, 241, 241);
 
       img {
         grid-column: 1;
@@ -103,12 +172,12 @@
         width: 400em;
         grid-column: 1;
         grid-row: 2/3;
-        transition: left 1s;
+        transition: left 1.5s;
       }
 
       li {
         width: 20em;
-        color: yellow;
+        background-color: rgba(153, 152, 150, 0.5);
       }
       .buttons {
         display: flex;
@@ -120,60 +189,183 @@
 
         button {
           width: 3em;
+          font-family: monospace;
           font-size: 20px;
           font-weight: 700;
           color: white;
           background: none;
           border: $marron;
           border-style: solid;
-          border-width: 0.22rem;
+          border-width: 0.18rem;
           border-radius: 20px;
           padding: 0;
         }
       }
 
-      button:hover {
-        background-color: $marron;
-        border-color: darkgray;
-        transition: 100ms ease-out;
-        cursor: pointer;
+      .button_hover {
+        button:hover {
+          background-color: $marron;
+          border-color: darkgray;
+          transition: background-color 150ms ease-out;
+          transition: border-color 100ms ease-out;
+          cursor: pointer;
+        }
       }
     }
 
-    .right_three {
-      left: -340em;
+    .full_testimony {
+      position: fixed;
+      z-index: 10;
+      top: 50%;
+      left: 46%;
+      transform: translate(-50%, -50%);
+      width: 60vw;
+      height: 40vw;
+      justify-content: space-evenly;
+      flex-direction: column;
+      border-style: none;
+      background-color: rgba(106, 171, 214, 0.85);
+      padding: 0rem 1rem 1rem 1rem;
+
+      button {
+        position: sticky;
+        align-self: flex-start;
+        top: 0;
+        text-align: center;
+        margin: 0 1rem 0 0;
+        margin-left: auto;
+        background: none;
+        width: 2rem;
+        border-style: none;
+        padding: 1rem;
+        color: blue;
+        font-size: 2.4rem;
+        font-family: monospace;
+      }
+
+      button:hover {
+        cursor: pointer;
+        font-weight: 600;
+      }
+
+      h4 {
+        font-size: 2.7vw;
+        margin-bottom: 1rem;
+      }
+
+      p {
+        text-align: center;
+        font-size: 1.7vw;
+      }
     }
 
-    .right_two {
-      left: -280em;
+    #carousel-dots {
+      display: flex;
+      position: absolute;
+      width: 25%;
+      justify-content: center;
+
+      ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 80%;
+        margin: 10px 20px 10px 20px;
+
+        li {
+          display: inline-block;
+          padding: 0;
+          margin: 0;
+          width: 10px;
+          height: 10px;
+          // background-color: #ccc;
+          border-radius: 100%;
+          border: none;
+        }
+      }
     }
 
-    .right_one {
-      left: -220em;
+    .p_8 {
+      .testimonyList {
+        left: -346em;
+      }
+
+      #carousel-dots li:last-child {
+        background-color: rgb(162, 11, 11);
+      }
     }
 
-    .center {
-      left: -150em;
+    .p_7 {
+      .testimonyList {
+        left: -320em;
+      }
+
+      #carousel-dots li:nth-child(7) {
+        background-color: rgb(162, 11, 11);
+      }
     }
 
-    .left_one {
-      left: -90em;
+    .p_6 {
+      .testimonyList {
+        left: -267em;
+      }
+      #carousel-dots li:nth-child(6) {
+        background-color: rgb(162, 11, 11);
+      }
     }
 
-    .left_two {
-      left: -20em;
+    .p_5 {
+      .testimonyList {
+        left: -214em;
+      }
+      #carousel-dots li:nth-child(5) {
+        background-color: rgb(162, 11, 11);
+      }
     }
 
-    .left_three {
-      left: 40em;
+    .p_4 {
+      .testimonyList {
+        left: -160em;
+      }
+
+      #carousel-dots li:nth-child(4) {
+        background-color: rgb(162, 11, 11);
+      }
+    }
+
+    .p_3 {
+      .testimonyList {
+        left: -106em;
+      }
+      #carousel-dots li:nth-child(3) {
+        background-color: rgb(162, 11, 11);
+      }
+    }
+
+    .p_2 {
+      .testimonyList {
+        left: -54em;
+      }
+      #carousel-dots li:nth-child(2) {
+        background-color: rgb(162, 11, 11);
+      }
+    }
+
+    .p_1 {
+      .testimonyList {
+        left: 12em;
+      }
+      #carousel-dots li:first-child {
+        background-color: rgb(162, 11, 11);
+      }
     }
   }
+}
 
-  @media screen and (min-width: 1300px) {
-    .testimonies {
-      li {
-        width: 23em;
-      }
+@media screen and (min-width: 1300px) {
+  .testimonies {
+    li {
+      width: 23em;
     }
   }
 }

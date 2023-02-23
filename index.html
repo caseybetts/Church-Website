@@ -27,11 +27,24 @@
           <div>
             <a href="#">About Us ⏷</a>
             <div class="banner-sub">
-              <a href="#">Services</a>
-              <a href="#">Staff</a>
-              <a href="#">Campus Minustry</a>
-              <a href="#">Statement of Faith</a>
-              <a href="#">Vission and Mission</a>
+              <a href="https://www.resurrectionchurchboulder.org/services/"
+                >Services</a
+              >
+              <a href="https://www.resurrectionchurchboulder.org/staff/"
+                >Staff</a
+              >
+              <a
+                href="https://www.resurrectionchurchboulder.org/campus-ministry/"
+                >Campus Minustry</a
+              >
+              <a
+                href="https://www.resurrectionchurchboulder.org/statement-of-faith/"
+                >Statement of Faith</a
+              >
+              <a
+                href="https://www.resurrectionchurchboulder.org/vision-and-mission/"
+                >Vission and Mission</a
+              >
             </div>
           </div>
           <div>
@@ -78,6 +91,8 @@
 
     <main class="main-area">
       <div id="bgoverlay" class="overlay"></div>
+      <div id="t_overlay" class="t_overlay no_display"></div>
+
       <section class="hero">
         <div id="cf3">
           <img class="top" src="church-worship.jpg" alt="worshipers" />
@@ -86,7 +101,11 @@
             src="praising-god.jpg"
             alt="man praising god"
           />
-          <img class="bottom" src="bible-hands.jpg" alt="hands on a bible" />
+          <img
+            class="mobile-hide bottom"
+            src="bible-hands.jpg"
+            alt="hands on a bible"
+          />
         </div>
         <h1>WELCOME TO RESURRECTION CHURCH</h1>
         <ul class="flex flex-ai-c">
@@ -106,25 +125,38 @@
         <center><cite>MARK 16:15</cite></center>
       </section>
 
-      <section class="testimonies">
+      <section id="testimonyList" class="testimonies p_1">
         <img src="assets\sunset.jpg" alt="Sunset" />
         <h2>TESTIMONIES</h2>
-        <ul id="testimonyList" class="center">
-          <li>
+
+        <ul class="testimonyList button_hover">
+          <li id="t_1">
             <h4>Life in Christ</h4>
-            <p>
+            <p id="t1_summary">
               “When I came to CU as a freshman I felt lost and empty. Even
               though I grew up going to church I was...
             </p>
-            <a href="#">Read More</a>
+            <button type="button" id="testimony1">Read More</button>
           </li>
-          <li>
+
+          <li id="t_2">
             <h4>From Rebellion to Forgiven</h4>
-            <p>
+            <p id="t2_summary">
               “When I first went to college, I was at a low point in my life.
               Because of some rebellious decisions I had made, I...
             </p>
-            <a href="#">Read More</a>
+            <p id="t2_full" class="no_display">
+              “When I came to CU as a freshman I felt lost and empty. Even
+              though I grew up going to church I was only a Christian by name
+              and felt disconnected from God. After hearing a message at church
+              about making a decision to repent and give your life to Jesus, I
+              knew that was the right thing to do. I understood that day that I
+              had been trading the truth of Jesus for other things that left me
+              empty and dead. So, I decided to make a trade: my life for the
+              eternal life found in Christ!”
+            </p>
+            <button id="testimony2">Read More</button>
+            <button id="testimony2-l" class="no_display">Less</button>
           </li>
           <li>
             <h4>Fulfillment In Christ</h4>
@@ -133,6 +165,9 @@
               to have a good time and do what Boulder had...
             </p>
             <a href="#">Read More</a>
+            <div id="testimony3" class="FullTestimony">
+              <p>Full Testimony Block</p>
+            </div>
           </li>
           <li>
             <h4>Forgivness is Real</h4>
@@ -178,7 +213,7 @@
             <h4>Found Hope in Jesus</h4>
             <p>
               “I came to college believing God was real and calling myself a
-              Christian, but I was truly independent and untrustiong of...
+              Christian, but I was truly independent and untrusting of...
             </p>
             <a href="#">Read More</a>
           </li>
@@ -231,9 +266,49 @@
             <a href="#">Read More</a>
           </li>
         </ul>
-        <div class="buttons">
+        <div class="buttons button_hover">
           <button type="button" id="left"><b><</b></button>
+          <div id="carousel-dots">
+            <ul>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </div>
           <button type="button" id="right"><b>></b></button>
+        </div>
+        <div id="t1_full" class="full_testimony no_display">
+          <button type="button" class="close">x</button>
+          <h4>Life in Christ</h4>
+          <p>
+            “When I came to CU as a freshman I felt lost and empty. Even though
+            I grew up going to church I was only a Christian by name and felt
+            disconnected from God. After hearing a message at church about
+            making a decision to repent and give your life to Jesus, I knew that
+            was the right thing to do. I understood that day that I had been
+            trading the truth of Jesus for other things that left me empty and
+            dead. So, I decided to make a trade: my life for the eternal life
+            found in Christ!”
+          </p>
+        </div>
+        <div id="t2_full" class="full_testimony no_display">
+          <button type="button" class="close">x</button>
+          <h4>Life in Christ</h4>
+          <p>
+            “When I came to CU as a freshman I felt lost and empty. Even though
+            I grew up going to church I was only a Christian by name and felt
+            disconnected from God. After hearing a message at church about
+            making a decision to repent and give your life to Jesus, I knew that
+            was the right thing to do. I understood that day that I had been
+            trading the truth of Jesus for other things that left me empty and
+            dead. So, I decided to make a trade: my life for the eternal life
+            found in Christ!”
+          </p>
         </div>
       </section>
 
