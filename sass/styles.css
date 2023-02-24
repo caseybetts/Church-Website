@@ -612,7 +612,8 @@ CSS Grid layout for modern browsers:
   flex-wrap: wrap;
   color: blue;
   align-items: center;
-  margin: 2em 0 2em 0;
+  padding: 3rem 0 3rem 0;
+  margin: 2rem 0 2rem 0;
 }
 .devotions img {
   padding: 1rem;
@@ -729,7 +730,7 @@ CSS Grid layout for modern browsers:
   width: 2rem;
   border-style: none;
   padding: 1rem;
-  color: blue;
+  color: rgba(82, 82, 144, 0.6941176471);
   font-size: 2.4rem;
   font-family: monospace;
 }
@@ -744,10 +745,10 @@ CSS Grid layout for modern browsers:
 .t_overlay {
   position: fixed;
   width: 100vw;
-  height: 110vw;
+  height: 500vw;
   z-index: 10;
   top: 0;
-  background: rgba(0, 0, 139, 0.5176470588);
+  background: rgba(87, 87, 117, 0.7490196078);
 }
 
 .no_display {
@@ -836,6 +837,7 @@ CSS Grid layout for modern browsers:
       flex-direction: column;
       border-style: none;
       padding: 0rem 1rem 1rem 1rem;
+      border-radius: 9px;
     }
     .full_testimony button {
       position: sticky;
@@ -848,7 +850,7 @@ CSS Grid layout for modern browsers:
       width: 2rem;
       border-style: none;
       padding: 1rem;
-      color: blue;
+      color: rgba(82, 82, 144, 0.6941176471);
       font-size: 2.4rem;
       font-family: monospace;
     }
@@ -941,6 +943,10 @@ CSS Grid layout for modern browsers:
     width: 23em;
   }
 }
+.quote {
+  padding: 3rem 0 3rem 0;
+}
+
 @supports (grid-area: auto) {
   @media screen and (min-width: 1024px) {
     .quote {

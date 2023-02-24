@@ -106,7 +106,7 @@
     width: 2rem;
     border-style: none;
     padding: 1rem;
-    color: blue;
+    color: #525290b1;
     font-size: 2.4rem;
     font-family: monospace;
   }
@@ -124,10 +124,10 @@
 .t_overlay {
   position: fixed;
   width: 100vw;
-  height: 110vw;
+  height: 500vw;
   z-index: 10;
   top: 0;
-  background: #00008b84;
+  background: #575775bf;
 }
 
 .no_display {
@@ -225,6 +225,7 @@
       flex-direction: column;
       border-style: none;
       padding: 0rem 1rem 1rem 1rem;
+      border-radius: 9px;
 
       button {
         position: sticky;
@@ -237,7 +238,7 @@
         width: 2rem;
         border-style: none;
         padding: 1rem;
-        color: blue;
+        color: #525290b1;
         font-size: 2.4rem;
         font-family: monospace;
       }
