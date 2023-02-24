@@ -60,14 +60,22 @@
     border-color: rgb(162, 11, 11);
     padding: 1.2rem;
     margin: 20px;
-    color: white;
+    color: rgb(141, 141, 141);
     font-size: 1.4rem;
+    cursor: pointer;
+    text-shadow: 1px 1px 13px rgb(181, 181, 181);
   }
 
-  a:hover {
-    background-color: $marron;
-    border-color: darkgray;
-    transition: 200ms ease-out;
+  .button_hover {
+    button:hover {
+      color: whitesmoke;
+      background-color: $marron;
+      border-color: rgb(125, 125, 125);
+      transition: background-color 600ms ease-out, border-color 600ms ease-out,
+        color 600ms ease-out;
+      // transition: border-color 300ms ease-out;
+      cursor: pointer;
+    }
   }
 
   .open {
@@ -199,16 +207,6 @@
           border-width: 0.18rem;
           border-radius: 20px;
           padding: 0;
-        }
-      }
-
-      .button_hover {
-        button:hover {
-          background-color: $marron;
-          border-color: darkgray;
-          transition: background-color 150ms ease-out;
-          transition: border-color 100ms ease-out;
-          cursor: pointer;
         }
       }
     }

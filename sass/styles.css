@@ -419,7 +419,7 @@ CSS Grid layout for modern browsers:
   padding-top: 1rem;
 }
 .hero h1 {
-  font-size: 4vw;
+  font-size: 40px;
   font-weight: 500;
   text-align: center;
   z-index: 10;
@@ -486,6 +486,7 @@ CSS Grid layout for modern browsers:
       height: 100%;
     }
     .hero h1 {
+      font-size: 4vw;
       display: flex;
       justify-content: center;
       align-self: flex-end;
@@ -689,13 +690,17 @@ CSS Grid layout for modern browsers:
   border-color: rgb(162, 11, 11);
   padding: 1.2rem;
   margin: 20px;
-  color: white;
+  color: rgb(141, 141, 141);
   font-size: 1.4rem;
+  cursor: pointer;
+  text-shadow: 1px 1px 13px rgb(181, 181, 181);
 }
-.testimonies a:hover {
+.testimonies .button_hover button:hover {
+  color: whitesmoke;
   background-color: rgb(162, 11, 11);
-  border-color: darkgray;
-  transition: 200ms ease-out;
+  border-color: rgb(125, 125, 125);
+  transition: background-color 600ms ease-out, border-color 600ms ease-out, color 600ms ease-out;
+  cursor: pointer;
 }
 .testimonies .open {
   display: block;
@@ -817,13 +822,6 @@ CSS Grid layout for modern browsers:
       border-width: 0.18rem;
       border-radius: 20px;
       padding: 0;
-    }
-    .testimonies .button_hover button:hover {
-      background-color: rgb(162, 11, 11);
-      border-color: darkgray;
-      transition: background-color 150ms ease-out;
-      transition: border-color 100ms ease-out;
-      cursor: pointer;
     }
     .full_testimony {
       position: fixed;
