@@ -1,14 +1,17 @@
 console.log("JS is working");
 
+////////////////// Variables ///////////////////////////////
 // Hamburger menu
 const btnHamburger = document.querySelector("#btnHamburger");
 const body = document.querySelector("body");
-// const header = document.querySelector(".header");
 const fadeElms = document.querySelectorAll(".has-fade");
 const background = document.querySelector("#bgoverlay");
+
+// Testimony Section
 const close_button = document.querySelectorAll(".close");
+const full_testimony = document.querySelectorAll(".full_testimony");
+const read_more = document.querySelectorAll(".read_more");
 var right_end = false;
-// Testimony "Read More" buttons
 const testimony1 = document.querySelector("#testimony1");
 const testimony2 = document.querySelector("#testimony2");
 const testimony3 = document.querySelector("#testimony3");
@@ -31,103 +34,19 @@ const testimonies = document.querySelector("#testimonyList");
 const leftbtn = document.querySelector("#left");
 const rightbtn = document.querySelector("#right");
 
-// Hamburger menu for mobile click to open, click to close
-btnHamburger.addEventListener("click", function () {
-  if (body.classList.contains("open")) {
-    // Close hamburger menu
-    body.classList.remove("noscroll");
-    body.classList.remove("open");
-    background.classList.add(".fade-out-background");
-    background.classList.remove(".fade-in-background");
-    fadeElms.forEach(function (element) {
-      element.classList.remove("fade-in");
-      element.classList.add("fade-out");
-    });
-  } else {
-    // Open hamburger menu
-    body.classList.add("noscroll");
-    body.classList.add("open");
-    background.classList.remove(".fade-out-background");
-    background.classList.add(".fade-in-background");
-    fadeElms.forEach(function (element) {
-      element.classList.remove("fade-out");
-      element.classList.add("fade-in");
-    });
-  }
-});
-
-// Testimony is displayed when "Read More" button is clicked
-testimony1.addEventListener("click", function () {
-  console.log("Read More");
-  // Open full testimony text and hide the summary
-  document.querySelector("#t1_summary").classList.add("no_display");
-  document.querySelector("#t1_full").classList.add("flex_display");
-  document.querySelector("#t1_full").classList.remove("no_display");
-  // Unhide the background overlay
-  document.querySelector("#t_overlay").classList.remove("no_display");
-  // Stop scrolling
-  body.classList.add("noscroll");
-});
-
-// Remove the full testimony when the background is clicked
-document.querySelector("#t_overlay").addEventListener("click", function () {
-  // Hide the full testimony
-  document.querySelector("#t1_full").classList.add("no_display");
-  document.querySelector("#t1_full").classList.remove("flex_display");
-  // Unhide the summary
-  document.querySelector("#t1_summary").classList.remove("no_display");
-  // Hide the overlay
-  document.querySelector("#t_overlay").classList.add("no_display");
-  // Re-enable scrolling
-  body.classList.remove("noscroll");
-});
-
+////////////// Testemony Section ////////////////////////
+// Defining functions
 function close_testimony() {
-  // Hide the full testimony
-  document.querySelector("#t1_full").classList.add("no_display");
-  document.querySelector("#t1_full").classList.remove("flex_display");
-  // Unhide the summary
-  document.querySelector("#t1_summary").classList.remove("no_display");
-  // Hide the overlay
-  document.querySelector("#t_overlay").classList.add("no_display");
-  // Re-enable scrolling
-  body.classList.remove("noscroll");
-}
-
-// Remove the full testimony when the "x" is clicked
-document.querySelectorAll(".close").forEach((item) => {
-  item.addEventListener("click", close_testimony);
-});
-
-// Testimony 2 is displayed when "Read More" button is clicked
-testimony2.addEventListener("click", function () {
-  console.log("test 2");
-  // Open full testimony text
-  document.querySelector("#t2_summary").classList.add("no_display");
-  document.querySelector("#t2_full").classList.remove("no_display");
-  // Change button
-  document.querySelector("#testimony2").classList.add("no_display");
-  document.querySelector("#testimony2-l").classList.remove("no_display");
-  // Increase box size
-  document.querySelector("#t_2").classList.add("full");
-});
-
-// Quote grows with scroll
-console.log("window width: " + window.innerWidth);
-
-if (window.innerWidth > 1334) {
-  var cont = document.getElementById("content");
-
-  window.addEventListener("scroll", function () {
-    const current = window.scrollY;
-
-    if (current < 100) {
-      cont.style.fontSize = "30px";
-    } else if (current > 900) {
-      cont.style.fontSize = "45px";
-    } else {
-      cont.style.fontSize = 27 + current / 48 + "px";
+  full_testimony.forEach((item) => {
+    if (item.classList.contains("flex_display")) {
+      // Hide the full testimony
+      item.classList.remove("flex_display");
+      item.classList.add("no_display");
     }
+    // Hide the overlay
+    document.querySelector("#t_overlay").classList.add("no_display");
+    // Re-enable scrolling
+    body.classList.remove("noscroll");
   });
 }
 
@@ -173,9 +92,6 @@ function moveleft() {
   }
 }
 
-// left button listen for click
-leftbtn.addEventListener("click", moveleft);
-
 function moveright() {
   // determine where the sliding panel is currently
   if (testimonies.classList.contains("p_1")) {
@@ -218,7 +134,92 @@ function moveright() {
   }
 }
 
-// right button listen for click
+// "Read More" Button Functionality
+read_more.forEach((item) => {
+  item.addEventListener("click", function () {
+    console.log("Button", item.id, " was clicked");
+    if (item.id == "testimony1") {
+      // Make The Full Testemony div flex display
+      document.querySelector("#t1_full").classList.add("flex_display");
+      document.querySelector("#t1_full").classList.remove("no_display");
+    } else if (item.id == "testimony2") {
+      // Make The Full Testemony div flex display
+      document.querySelector("#t2_full").classList.add("flex_display");
+      document.querySelector("#t2_full").classList.remove("no_display");
+    } else if (item.id == "testimony3") {
+      // Make The Full Testemony div flex display
+      document.querySelector("#t3_full").classList.add("flex_display");
+      document.querySelector("#t3_full").classList.remove("no_display");
+    } else if (item.id == "testimony4") {
+      // Make The Full Testemony div flex display
+      document.querySelector("#t4_full").classList.add("flex_display");
+      document.querySelector("#t4_full").classList.remove("no_display");
+    } else if (item.id == "testimony5") {
+      // Make The Full Testemony div flex display
+      document.querySelector("#t5_full").classList.add("flex_display");
+      document.querySelector("#t5_full").classList.remove("no_display");
+    } else if (item.id == "testimony6") {
+      console.log(item.id);
+      // Make The Full Testemony div flex display
+      document.querySelector("#t6_full").classList.add("flex_display");
+      document.querySelector("#t6_full").classList.remove("no_display");
+    } else if (item.id == "testimony7") {
+      console.log(item.id);
+      // Make The Full Testemony div flex display
+      document.querySelector("#t7_full").classList.add("flex_display");
+      document.querySelector("#t7_full").classList.remove("no_display");
+    } else if (item.id == "testimony8") {
+      // Make The Full Testemony div flex display
+      document.querySelector("#t8_full").classList.add("flex_display");
+      document.querySelector("#t8_full").classList.remove("no_display");
+    } else if (item.id == "testimony9") {
+      // Make The Full Testemony div flex display
+      document.querySelector("#t9_full").classList.add("flex_display");
+      document.querySelector("#t9_full").classList.remove("no_display");
+    } else if (item.id == "testimony10") {
+      // Make The Full Testemony div flex display
+      document.querySelector("#t10_full").classList.add("flex_display");
+      document.querySelector("#t10_full").classList.remove("no_display");
+    } else if (item.id == "testimony11") {
+      // Make The Full Testemony div flex display
+      document.querySelector("#t11_full").classList.add("flex_display");
+      document.querySelector("#t11_full").classList.remove("no_display");
+    } else if (item.id == "testimony12") {
+      // Make The Full Testemony div flex display
+      document.querySelector("#t12_full").classList.add("flex_display");
+      document.querySelector("#t12_full").classList.remove("no_display");
+    } else if (item.id == "testimony13") {
+      // Make The Full Testemony div flex display
+      document.querySelector("#t13_full").classList.add("flex_display");
+      document.querySelector("#t13_full").classList.remove("no_display");
+    } else if (item.id == "testimony14") {
+      // Make The Full Testemony div flex display
+      document.querySelector("#t14_full").classList.add("flex_display");
+      document.querySelector("#t14_full").classList.remove("no_display");
+    } else if (item.id == "testimony15") {
+      // Make The Full Testemony div flex display
+      document.querySelector("#t15_full").classList.add("flex_display");
+      document.querySelector("#t15_full").classList.remove("no_display");
+    }
+    // Unhide the background overlay
+    document.querySelector("#t_overlay").classList.remove("no_display");
+    // Prevent the page from scrolling
+    body.classList.add("noscroll");
+  });
+});
+
+// Testimony Background Overlay Click Functionality
+document.querySelector("#t_overlay").addEventListener("click", close_testimony);
+
+// Full Testimony "X" Close Button Functionality
+document.querySelectorAll(".close").forEach((item) => {
+  item.addEventListener("click", close_testimony);
+});
+
+// "<" Left Button Functionality
+leftbtn.addEventListener("click", moveleft);
+
+// ">" Right Button Functionality
 rightbtn.addEventListener("click", moveright);
 
 // Timed motion of the testimony caousel
@@ -230,32 +231,48 @@ setInterval(function () {
   }
 }, 1000000);
 
-// Timed Change of Hero Image
-// const heroImage = document.querySelector("#HeroImage");
-// console.log(heroImage.src);
+///////////////////// Header Section //////////////////////
+// Hamburger menu for mobile click to open, click to close
+btnHamburger.addEventListener("click", function () {
+  if (body.classList.contains("open")) {
+    // Close hamburger menu
+    body.classList.remove("noscroll");
+    body.classList.remove("open");
+    background.classList.add(".fade-out-background");
+    background.classList.remove(".fade-in-background");
+    fadeElms.forEach(function (element) {
+      element.classList.remove("fade-in");
+      element.classList.add("fade-out");
+    });
+  } else {
+    // Open hamburger menu
+    body.classList.add("noscroll");
+    body.classList.add("open");
+    background.classList.remove(".fade-out-background");
+    background.classList.add(".fade-in-background");
+    fadeElms.forEach(function (element) {
+      element.classList.remove("fade-out");
+      element.classList.add("fade-in");
+    });
+  }
+});
 
-// function changeImageClass() {
-//   if (heroImage.src == "http://127.0.0.1:5500/church-worship.jpg") {
-//     heroImage.src = "praising-god.jpg";
-//   } else if (heroImage.src == "http://127.0.0.1:5500/praising-god.jpg") {
-//     heroImage.src = "church-worship.jpg";
-//   }
-// }
+/////////// Quote Section /////////////
+// Quote grows with scroll
+console.log("window width: " + window.innerWidth);
 
-// setInterval(changeImageClass, 10000);
+if (window.innerWidth > 1334) {
+  var cont = document.getElementById("content");
 
-// const pslider = document.querySelectorAll(".parallax-slider");
-// var bool = false;
+  window.addEventListener("scroll", function () {
+    const current = window.scrollY;
 
-// function changeImage() {
-//   bool = !bool;
-//   let imgSrc = bool ? "church-worship.jpg" : "praising-god.jpg"; // Toggle image
-//   pslider.addClass("transition-src"); // Add class to begin transision
-//   setTimeout(() => {
-//     pslider
-//       .attr("src", "http://127.0.0.1:5500/${imgSrc}")
-//       .removeClass("transitioning-src");
-//   }, 400); // Ensure timeout matches transition time, remove transisition class
-// }
-
-// setInterval(changeImage(), 6000);
+    if (current < 100) {
+      cont.style.fontSize = "30px";
+    } else if (current > 900) {
+      cont.style.fontSize = "45px";
+    } else {
+      cont.style.fontSize = 27 + current / 48 + "px";
+    }
+  });
+}
