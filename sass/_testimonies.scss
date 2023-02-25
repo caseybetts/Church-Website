@@ -81,16 +81,6 @@
   .open {
     display: block;
   }
-
-  .full {
-    height: 30rem;
-    width: 27rem;
-    padding-top: 1rem;
-    margin-top: 1rem;
-    background-color: rgb(165, 82, 54, 1);
-    // transform: scaleX(1.15);
-    transition: width 500ms cubic-bezier(0.47, 0, 0.75, 0.72);
-  }
 }
 
 .full_testimony {
@@ -104,7 +94,7 @@
   justify-content: center;
   flex-direction: column;
   border-style: none;
-  background-color: rgba(212, 126, 104, 0.85);
+  background-color: rgba(201, 113, 90, 0.85);
   padding: 4rem;
 
   button {
@@ -125,7 +115,7 @@
   }
 
   p {
-    font-size: 25px;
+    font-size: 18px;
   }
 }
 

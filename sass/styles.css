@@ -705,14 +705,6 @@ CSS Grid layout for modern browsers:
 .testimonies .open {
   display: block;
 }
-.testimonies .full {
-  height: 30rem;
-  width: 27rem;
-  padding-top: 1rem;
-  margin-top: 1rem;
-  background-color: rgb(165, 82, 54);
-  transition: width 500ms cubic-bezier(0.47, 0, 0.75, 0.72);
-}
 
 .full_testimony {
   position: fixed;
@@ -725,7 +717,7 @@ CSS Grid layout for modern browsers:
   justify-content: center;
   flex-direction: column;
   border-style: none;
-  background-color: rgba(212, 126, 104, 0.85);
+  background-color: rgba(201, 113, 90, 0.85);
   padding: 4rem;
 }
 .full_testimony button {
@@ -744,7 +736,7 @@ CSS Grid layout for modern browsers:
   font-size: 34px;
 }
 .full_testimony p {
-  font-size: 25px;
+  font-size: 18px;
 }
 
 .t_overlay {

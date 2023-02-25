@@ -27,7 +27,6 @@ const testimony12 = document.querySelector("#testimony12");
 const testimony13 = document.querySelector("#testimony13");
 const testimony14 = document.querySelector("#testimony14");
 const testimony15 = document.querySelector("#testimony15");
-const testimony16 = document.querySelector("#testimony16");
 
 // Testimony carousel left and right buttons
 const testimonies = document.querySelector("#testimonyList");
@@ -229,7 +228,7 @@ setInterval(function () {
   } else {
     moveright();
   }
-}, 1000000);
+}, 10000);
 
 ///////////////////// Header Section //////////////////////
 // Hamburger menu for mobile click to open, click to close
@@ -257,9 +256,21 @@ btnHamburger.addEventListener("click", function () {
   }
 });
 
+// Mobile Menu Background Overlay Functionality
+background.addEventListener("click", function () {
+  // Close hamburger menu
+  body.classList.remove("noscroll");
+  body.classList.remove("open");
+  background.classList.add(".fade-out-background");
+  background.classList.remove(".fade-in-background");
+  fadeElms.forEach(function (element) {
+    element.classList.remove("fade-in");
+    element.classList.add("fade-out");
+  });
+});
+
 /////////// Quote Section /////////////
 // Quote grows with scroll
-console.log("window width: " + window.innerWidth);
 
 if (window.innerWidth > 1334) {
   var cont = document.getElementById("content");
